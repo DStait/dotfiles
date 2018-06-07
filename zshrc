@@ -2,7 +2,7 @@
 
 
 # Set name of the theme to load. Themes at: https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="avit"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="false"
