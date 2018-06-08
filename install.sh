@@ -5,12 +5,37 @@
 
 ########## Variables
 
-dir=~/dotfiles                                      # dotfiles directory
-olddir=~/dotfiles_old                               # old dotfiles backup directory
+dir=~/dotfiles                              # dotfiles directory
+olddir=~/dotfiles_old                       # old dotfiles backup directory
 files="vimrc zshrc iterm hushlogin"         # list of files/folders to symlink in homedir
-PLATFORM=$(uname)
+PLATFORM=$(uname)                           # Linux or Darwin (MacOS)
 
 ##########
+
+# Check if MacOS & install homebrew if it is (Needed for git install)
+if [[ $PLATFORM == 'Darwin' ]]; then
+  # Check if Homebrew installed 
+  if [[ ! $(which brew) ]]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+fi
+
+# Check if git is installed, install if not
+if [ ! $(which git) ]; then
+  if [[ -f /etc/debian_version ]]; then
+    sudo apt install git -y
+  fi
+  if [[ -f /etc/redhat-release ]]; then
+    sudo yum install git -y
+  fi
+  if [[ $PLATFORM == 'Darwin' ]]; then
+    brew install git
+  fi
+fi
+
+
+# Clone dotfiles repo
+git clone https://github.com/MrNimmy/dotfiles.git ~/dotfiles
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
@@ -31,12 +56,10 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-
+# Mac Setup
 if [[ $PLATFORM == 'Darwin' ]]; then
-# Keep-alive: update existing `sudo` time stamp 
+  # Keep-alive: update existing `sudo` time stamp 
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-  # Install Homebrew
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update                 # Make sure we’re using the latest Homebrew.
   brew upgrade                # Upgrade any already-installed formulae.
   brew tap homebrew/bundle    # Install bundle to install our Apps later on
@@ -49,7 +72,7 @@ install_zsh () {
 # Test to see if zshell is installed.  If it is:
 if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # Clone my oh-my-zsh repository from GitHub only if it isn't already present
-    if [[ ! -d $dir/oh-my-zsh/ ]]; then
+    if [[ ! -d ~/.oh-my-zsh/ ]]; then
         git clone http://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     fi
     # Set the default shell to zsh if it isn't currently set to zsh
@@ -60,14 +83,14 @@ else
     # If the platform is Linux, try an apt-get to install zsh and then recurse
     if [[ $PLATFORM == 'Linux' ]]; then
         if [[ -f /etc/redhat-release ]]; then
-            sudo yum install zsh
+            sudo yum install zsh -y
             install_zsh
         fi
         if [[ -f /etc/debian_version ]]; then
-            sudo apt-get install zsh
+            sudo apt-get install zsh -y
             install_zsh
         fi
-    # If the platform is OS X, tell the user to install zsh :)
+    # If the platform is MacOS, inform to install zsh and Exit. (Shouldn't ever get here)
     elif [[ $PLATFORM == 'Darwin' ]]; then
         echo "Please install zsh, then re-run this script!"
         exit
