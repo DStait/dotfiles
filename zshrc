@@ -81,7 +81,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 
-if [ -n $SSH_CLIENT ]; then
+if [ -n "$SSH_CLIENT" ]; then
   PROMPT="$(whoami)@$(hostname) "$PROMPT
 fi
 
