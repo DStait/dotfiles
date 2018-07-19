@@ -80,6 +80,11 @@ fi
 # Source oh-my-zsh 
 source $ZSH/oh-my-zsh.sh
 
+
+if [ -n "$SSH_CLIENT" ]; then
+  PROMPT="$(whoami)@$(hostname) "$PROMPT
+fi
+
 ## Aliases
 
 # Easier navigation: .., ..., ...., .....
