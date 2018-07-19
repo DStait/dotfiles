@@ -43,7 +43,7 @@ PLATFORM=$(uname)
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
-  export ZSH=/Users/$(whoami)/.oh-my-zsh
+  export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
 
   # source ZSH Autosuggestions & highlighting
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -62,7 +62,7 @@ fi
 #############################
 
 if [[ $PLATFORM == 'Linux' ]]; then
-  export ZSH=/home/$(whoami)/.oh-my-zsh
+  export ZSH=/home/$DEFAULT_USER/.oh-my-zsh
 
   ## Set EDITOR to /usr/bin/vim if Vim is installed
   if [ -f /usr/bin/vim ]; then
