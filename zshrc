@@ -1,5 +1,3 @@
-# Path to oh-my-zsh installation.
-
 
 # Set name of the theme to load. Themes at: https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -42,7 +40,8 @@ PLATFORM=$(uname)
 #############################
 
 if [[ $PLATFORM == 'Darwin' ]]; then
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
+  #export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
   export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
 
   # source ZSH Autosuggestions & highlighting
@@ -118,3 +117,5 @@ alias vaghalt='vagrant halt'
 
 alias findip="grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'"
 
+# bat (cat alternative)
+alias bat='bat -n'
