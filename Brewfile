@@ -58,7 +58,7 @@ cask 'caskroom/versions/firefox-beta'
 cask 'boostnote'
 cask 'nextcloud'
 cask 'the-unarchiver'
-
+cask 'postman'
 
 # Work Apps
 # cask 'slack'
