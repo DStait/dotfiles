@@ -39,7 +39,7 @@ brew 'htop'
 brew 'git'
 brew 'watch'
 brew 'pv'
-
+brew 'bat'
 
 # Apps
 cask 'alfred'
