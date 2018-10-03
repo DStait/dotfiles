@@ -40,6 +40,7 @@ brew 'git'
 brew 'watch'
 brew 'pv'
 brew 'bat'
+brew 'packer'
 
 # Apps
 cask 'alfred'
@@ -51,14 +52,16 @@ cask 'virtualbox-extension-pack'
 cask 'vlc'
 cask 'spectacle'
 cask 'middleclick'
-cask 'visual-studio-code'
+cask 'vscodium'
 cask 'spotify'
 cask 'whatsapp'
 cask 'caskroom/versions/firefox-beta'
-cask 'boostnote'
 cask 'nextcloud'
 cask 'the-unarchiver'
 cask 'postman'
+cask 'keepingyouawake'
+cask 'signal'
+
 
 # Work Apps
 # cask 'slack'
@@ -67,7 +70,11 @@ cask 'postman'
 # cask 'powershell'
 # cask 'logitech-unifying'
 # cask 'powershell'
-
+# cask 'royal-tsx'
+# cask 'autodmg'
+# cask 'java8'
+# cask 'wireshark'
+# cask 'vnc-viewer'
 
 # Install Mac App Store Apps
 
