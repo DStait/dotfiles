@@ -1,7 +1,4 @@
 #!/bin/bash
-############################
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-############################
 
 ########## Variables
 
@@ -10,7 +7,40 @@ olddir=~/dotfiles_old                       # old dotfiles backup directory
 files="vimrc zshrc iterm hushlogin"         # list of files/folders to symlink in homedir
 PLATFORM=$(uname)                           # Linux or Darwin (MacOS)
 
-##########
+
+########## Functions
+
+install_zsh () {
+# Test to see if zshell is installed.  If it is:
+if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
+    # Clone my oh-my-zsh repository from GitHub only if it isn't already present
+    if [[ ! -d ~/.oh-my-zsh/ ]]; then
+        git clone http://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    fi
+    # Set the default shell to zsh if it isn't currently set to zsh
+    if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+        chsh -s $(which zsh)
+    fi
+else
+    # If the platform is Linux, try an apt-get to install zsh and then recurse
+    if [[ $PLATFORM == 'Linux' ]]; then
+        if [[ -f /etc/redhat-release ]]; then
+            sudo yum install zsh -y
+            install_zsh
+        fi
+        if [[ -f /etc/debian_version ]]; then
+            sudo apt-get install zsh -y
+            install_zsh
+        fi
+    # If the platform is MacOS, inform to install zsh and Exit. (Shouldn't ever get here)
+    elif [[ $PLATFORM == 'Darwin' ]]; then
+        echo "Please install zsh, then re-run this script!"
+        exit
+    fi
+fi
+}
+
+
 
 # Check if MacOS & install homebrew if it is (Needed for git install)
 if [[ $PLATFORM == 'Darwin' ]]; then
@@ -67,35 +97,15 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   source macos                # Set my MacOS settings
 fi
 
-
-install_zsh () {
-# Test to see if zshell is installed.  If it is:
-if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-    # Clone my oh-my-zsh repository from GitHub only if it isn't already present
-    if [[ ! -d ~/.oh-my-zsh/ ]]; then
-        git clone http://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-    fi
-    # Set the default shell to zsh if it isn't currently set to zsh
-    if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-        chsh -s $(which zsh)
-    fi
-else
-    # If the platform is Linux, try an apt-get to install zsh and then recurse
-    if [[ $PLATFORM == 'Linux' ]]; then
-        if [[ -f /etc/redhat-release ]]; then
-            sudo yum install zsh -y
-            install_zsh
-        fi
-        if [[ -f /etc/debian_version ]]; then
-            sudo apt-get install zsh -y
-            install_zsh
-        fi
-    # If the platform is MacOS, inform to install zsh and Exit. (Shouldn't ever get here)
-    elif [[ $PLATFORM == 'Darwin' ]]; then
-        echo "Please install zsh, then re-run this script!"
-        exit
-    fi
+# Ubuntu Setup
+if [[ -f /etc/debian_version ]]; then
+  source ubuntu_setup.sh
 fi
-}
 
+
+
+# Global Setup
 install_zsh
+# Set git to use ssh not https
+git remote set-url origin git@github.com:mrnimmy/dotfiles.git
+
