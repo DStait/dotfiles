@@ -4,8 +4,6 @@ packages=(
     firefox
     vagrant
     git
-    remmina
-    remmina-plugin-rdp
     zsh
     vim
     openssh-server
@@ -39,18 +37,10 @@ ln -s ~/.config/VSCodium '~/.config/Code - OSS'
 sudo apt-add-repository ppa:nextcloud-devs/client -y
 packages+=('nextcloud-client')
 
-## Ulauncher
-sudo apt-add-repository ppa:agornostal/ulauncher -y
-packages+=('ulauncher')
-
 ## Spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 packages+=('spotify-client')
-
-# Paper icons
-sudo apt-add-repository ppa:snwh/ppa -y
-packages+=('paper-icon-theme')
 
 
 # Install packages
