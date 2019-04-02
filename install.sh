@@ -4,7 +4,7 @@
 
 dir=~/dotfiles                                      # dotfiles directory
 olddir=~/dotfiles_old                               # old dotfiles backup directory
-files="vimrc zshrc iterm hushlogin tmux.conf"       # list of files/folders to symlink in homedir
+files="vimrc zshrc iterm tmux.conf"                 # list of files/folders to symlink in homedir
 PLATFORM=$(uname)                                   # Linux or Darwin (MacOS)
 
 
@@ -95,6 +95,7 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   brew tap homebrew/bundle    # Install bundle to install our Apps later on
   brew bundle                 # Install Applications
   source macos                # Set my MacOS settings
+  touch ~/.hushlogin
 fi
 
 # Ubuntu Setup
