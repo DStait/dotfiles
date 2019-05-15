@@ -55,32 +55,20 @@ cask 'middleclick'
 cask 'vscodium'
 cask 'spotify'
 cask 'whatsapp'
-cask 'caskroom/versions/firefox-beta'
+cask 'firefox'
 cask 'nextcloud'
 cask 'the-unarchiver'
 cask 'postman'
 cask 'keepingyouawake'
-cask 'signal'
 
 
 # Work Apps
 # cask 'slack'
-# cask 'hipchat'
-# cask 'nomad'
-# cask 'powershell'
 # cask 'logitech-unifying'
-# cask 'powershell'
-# cask 'royal-tsx'
-# cask 'autodmg'
-# cask 'java8'
 # cask 'wireshark'
 # cask 'vnc-viewer'
 
 # Install Mac App Store Apps
 
 # Work
-# mas 'OneDrive', id: 823766827
 # mas "Microsoft Remote Desktop", id: 715768417
-
-
-
