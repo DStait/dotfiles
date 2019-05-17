@@ -10,7 +10,7 @@ CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 
 # Command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -37,7 +37,7 @@ PLATFORM=$(uname)
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   #export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
   export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
 
   # source ZSH Autosuggestions & highlighting
@@ -45,7 +45,7 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
   # Get macOS Software Updates, updates Homebrew and its installed packages, uses mas to update apps installed from the App Store
-  alias update='sudo softwareupdate -i -a;brew update; brew upgrade; brew cu -y -a --cleanup;mas upgrade; vagrant plugin update'
+  alias update='sudo softwareupdate -i -a;brew update; brew upgrade; brew cu -y -a --cleanup;mas upgrade'
 
   # IP address - 13 charaters from the start to line up ip address'
   alias ip='echo "Public:      $(dig +short myip.opendns.com @resolver1.opendns.com)"; echo "Wireless:    $(ipconfig getifaddr en0)"; echo "Thunderbolt: $(ipconfig getifaddr en3)"'
@@ -75,6 +75,9 @@ fi
 # Source oh-my-zsh 
 source $ZSH/oh-my-zsh.sh
 
+if [ -f ~/.zsh_profile ]; then
+  source ~/.zsh_profile
+fi
 
 if [ -n "$SSH_CLIENT" ]; then
   PROMPT="$(whoami)@$(hostname) "$PROMPT
@@ -115,3 +118,5 @@ alias findip="grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4
 
 # bat (cat alternative)
 alias bat='bat -n'
+
+
