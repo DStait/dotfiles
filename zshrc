@@ -83,6 +83,8 @@ if [ -n "$SSH_CLIENT" ]; then
   PROMPT="$(whoami)@$(hostname) "$PROMPT
 fi
 
+export EDITOR=$(which vim)
+
 ## Aliases
 
 # Easier navigation: .., ..., ...., .....
