@@ -45,7 +45,7 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
   # Get macOS Software Updates, updates Homebrew and its installed packages, uses mas to update apps installed from the App Store
-  alias update='sudo softwareupdate -i -a;brew update; brew upgrade; brew cu -y -a --cleanup;mas upgrade'
+  alias update='sudo softwareupdate -i -a;brew update; brew upgrade; brew cu -y -q --cleanup;mas upgrade'
 
   # IP address - 13 charaters from the start to line up ip address'
   alias ip='echo "Public:      $(dig +short myip.opendns.com @resolver1.opendns.com)"; echo "Wireless:    $(ipconfig getifaddr en0)"; echo "Thunderbolt: $(ipconfig getifaddr en3)"'
