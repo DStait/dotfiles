@@ -21,6 +21,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
   vagrant
+  svn
 )
 
 
@@ -37,7 +38,7 @@ PLATFORM=$(uname)
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   #export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+  export PATH="/Users/$DEFAULT_USER/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
   export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
 
   # source ZSH Autosuggestions & highlighting
@@ -121,4 +122,6 @@ alias findip="grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4
 # bat (cat alternative)
 alias bat='bat -n'
 
+# Git check-ignore alternative
+alias gitcheckignore='git clean -dXn'
 
