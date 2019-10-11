@@ -22,6 +22,10 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   vagrant
   svn
+  docker
+  docker-compose
+  git
+  kitchen
 )
 
 
@@ -116,12 +120,16 @@ alias vagup='vagrant up'
 alias vagdestroy='vagrant destroy -f'
 alias vagssh='vagrant ssh'
 alias vaghalt='vagrant halt'
+alias vaggs='vagrant global-status'
 
 alias findip="grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'"
 
 # bat (cat alternative)
-alias bat='bat -n'
+#alias bat='bat -n'
 
 # Git check-ignore alternative
 alias gitcheckignore='git clean -dXn'
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
