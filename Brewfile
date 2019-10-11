@@ -41,9 +41,15 @@ brew 'watch'
 brew 'pv'
 brew 'bat'
 brew 'packer'
+brew "httpie"
+brew "speedtest-cli"
+brew "subversion"
+brew "telnet"
+
 
 # Apps
 cask 'alfred'
+cask "appcleaner"
 cask 'docker'
 cask 'iterm2'
 cask 'vagrant'
@@ -60,7 +66,11 @@ cask 'nextcloud'
 cask 'the-unarchiver'
 cask 'postman'
 cask 'keepingyouawake'
-
+cask "itsycal"
+cask "mysqlworkbench"
+cask "typora"
+cask "vnc-viewer"
+cask "wireshark"
 
 # Work Apps
 # cask 'slack'
