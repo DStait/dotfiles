@@ -1,7 +1,7 @@
 
-tap 'caskroom/versions'
-tap 'caskroom/cask'
-tap 'caskroom/versions'
+tap 'homebrew/cask-versions'
+tap 'homebrew/cask-cask'
+tap 'homebrew/cask-versions'
 tap 'buo/cask-upgrade'
 
 # Install GNU core utilities (those that come with macOS are outdated)
@@ -71,6 +71,7 @@ cask "mysqlworkbench"
 cask "typora"
 cask "vnc-viewer"
 cask "wireshark"
+cask 'sensiblesidebuttons'
 
 # Work Apps
 # cask 'slack'
