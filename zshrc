@@ -42,7 +42,7 @@ PLATFORM=$(uname)
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   #export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
-  export PATH="/Users/$DEFAULT_USER/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+  export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
   export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
 
   # source ZSH Autosuggestions & highlighting
@@ -54,6 +54,7 @@ if [[ $PLATFORM == 'Darwin' ]]; then
 
   # IP address - 13 charaters from the start to line up ip address'
   alias ip='echo "Public:      $(dig +short myip.opendns.com @resolver1.opendns.com)"; echo "Wireless:    $(ipconfig getifaddr en0)"; echo "Thunderbolt: $(ipconfig getifaddr en3)"'
+  alias clearKeyboardSettings='sudo rm /Library/Preferences/com.apple.keyboardtype.plist'
 fi
 
 
@@ -89,6 +90,8 @@ if [ -n "$SSH_CLIENT" ]; then
 fi
 
 export EDITOR=$(which vim)
+
+setopt shwordsplit
 
 ## Aliases
 
