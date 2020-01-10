@@ -29,7 +29,6 @@ brew 'tree'
 brew 'wget'
 brew 'vim', Args: ["with-override-system-vi"]
 brew 'grep', Args: ["with-default-names"]
-brew 'openssh'
 brew 'ssh-copy-id'
 brew 'jq'
 brew 'tmux'
