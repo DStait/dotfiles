@@ -51,7 +51,7 @@ fi
 if [[ $PLATFORM == 'Darwin' ]]; then
   # Check if Homebrew installed 
   if [[ ! $(which brew) ]]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 fi
 
