@@ -41,12 +41,17 @@ fi
 }
 
 
+# Make sure xcode is installed
+if [[ ! $(xcode-select -p ) ]]; then
+  xcode-select --install
+fi
+
 
 # Check if MacOS & install homebrew if it is (Needed for git install)
 if [[ $PLATFORM == 'Darwin' ]]; then
   # Check if Homebrew installed 
   if [[ ! $(which brew) ]]; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 fi
 
