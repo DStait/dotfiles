@@ -55,19 +55,15 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'vlc'
-cask 'spectacle'
-cask 'middleclick'
 cask 'vscodium'
 cask 'spotify'
-cask 'whatsapp'
 cask 'firefox'
 cask 'nextcloud'
 cask 'the-unarchiver'
 cask 'postman'
-cask 'keepingyouawake'
 cask "itsycal"
 cask "mysqlworkbench"
-cask "typora"
+cask "mark-text"
 cask "vnc-viewer"
 cask "wireshark"
 cask 'sensiblesidebuttons'
@@ -81,4 +77,7 @@ cask 'sensiblesidebuttons'
 # Install Mac App Store Apps
 
 # Work
-# mas "Microsoft Remote Desktop", id: 715768417
+mas "Microsoft Remote Desktop", id: 715768417
+# mas "Markoff", id: 1084713122
+mas "Magnet":, id: 441258766
+mas "Amphetamine":, id: 937984704

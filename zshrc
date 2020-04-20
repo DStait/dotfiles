@@ -110,6 +110,8 @@ alias ls="ls --color=auto"
 # Easy ls with details
 alias ll='ls -lah --color=auto' 
 
+alias l='ls -1' 
+
 # Git commands
 alias gs="git status"
 alias gp="git pull"
@@ -133,5 +135,8 @@ alias findip="grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4
 # Git check-ignore alternative
 alias gitcheckignore='git clean -dXn'
 
+# jq pipe to less with color
+alias jql='jq -C | less'
 
-
+# add svn unversioned files
+alias svn-add-unversioned="svn st | grep '^\?' | sed 's/^\? *//' | xargs -I% svn add %"
