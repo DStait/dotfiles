@@ -79,5 +79,5 @@ cask 'sensiblesidebuttons'
 # Work
 mas "Microsoft Remote Desktop", id: 715768417
 # mas "Markoff", id: 1084713122
-mas "Magnet":, id: 441258766
-mas "Amphetamine":, id: 937984704
+mas "Magnet", id: 441258766
+mas "Amphetamine", id: 937984704
