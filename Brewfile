@@ -3,6 +3,7 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/cask-cask'
 tap 'homebrew/cask-versions'
 tap 'buo/cask-upgrade'
+tap "alextodicescu/tgenv"
 
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
@@ -44,7 +45,14 @@ brew "httpie"
 brew "speedtest-cli"
 brew "subversion"
 brew "telnet"
-
+brew "mysql-client" 
+brew "ansible"
+brew "awscli"
+brew "diff-so-fancy"
+brew "mysql-client"
+brew "ripgrep"
+brew "tfenv"
+brew "alextodicescu/tgenv/tgenv"
 
 # Apps
 cask 'alfred'
@@ -67,6 +75,10 @@ cask "mark-text"
 cask "vnc-viewer"
 cask "wireshark"
 cask 'sensiblesidebuttons'
+cask "scroll-reverser"
+cask "alacritty"
+cask "aws-vault"
+cask "fsnotes"
 
 # Work Apps
 # cask 'slack'
@@ -78,6 +90,6 @@ cask 'sensiblesidebuttons'
 
 # Work
 mas "Microsoft Remote Desktop", id: 715768417
-# mas "Markoff", id: 1084713122
+mas "Ethernet Status", id: 1186187538
 mas "Magnet", id: 441258766
 mas "Amphetamine", id: 937984704
