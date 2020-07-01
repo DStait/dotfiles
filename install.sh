@@ -2,10 +2,10 @@
 
 ########## Variables
 
-dir=~/dotfiles                                      # dotfiles directory
-olddir=~/dotfiles_old                               # old dotfiles backup directory
-files="vimrc zshrc iterm tmux.conf"                 # list of files/folders to symlink in homedir
-PLATFORM=$(uname)                                   # Linux or Darwin (MacOS)
+dir=~/dotfiles                                                    # dotfiles directory
+olddir=~/dotfiles_old                                             # old dotfiles backup directory
+files="vimrc zshrc iterm tmux.conf alacritty.yml"                 # list of files/folders to symlink in homedir
+PLATFORM=$(uname)                                                 # Linux or Darwin (MacOS)
 
 
 ########## Functions
@@ -86,7 +86,7 @@ echo "done"
 # then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+    mv ~/.$file ~/dotfiles_old/ 2>/dev/null
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
@@ -101,17 +101,14 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   brew bundle                 # Install Applications
   source macos                # Set my MacOS settings
   touch ~/.hushlogin
+  install_zsh
+  curl -LJ https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/themes/oxide.zsh-theme -o ~/.oh-my-zsh/themes/oxide.zsh-theme # install zsh-theme
 fi
 
 # Ubuntu Setup
 if [[ -f /etc/debian_version ]]; then
   source ubuntu_setup.sh
+  install_zsh
 fi
 
-
-
-# Global Setup
-install_zsh
-# Set git to use ssh not https
-git remote set-url origin git@github.com:mrnimmy/dotfiles.git
 
