@@ -1,6 +1,6 @@
 
 # Set name of the theme to load. Themes at: https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="oxide"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="false"
@@ -28,6 +28,9 @@ plugins=(
   kitchen
 )
 
+# Don't add to history when prefixed with space
+setopt HIST_IGNORE_SPACE
+
 
 
 # Set default user - Hides name when this matches
@@ -42,19 +45,23 @@ PLATFORM=$(uname)
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   #export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
-  export PATH="/Users/$DEFAULT_USER/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+  export PATH="/Users/$DEFAULT_USER/bin:/usr/local/opt/mysql-client/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
   export ZSH=/Users/$DEFAULT_USER/.oh-my-zsh
 
   # source ZSH Autosuggestions & highlighting
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+  # z install
+  source /usr/local/etc/profile.d/z.sh
   # Get macOS Software Updates, updates Homebrew and its installed packages, uses mas to update apps installed from the App Store
-  alias update='sudo softwareupdate -i -a;brew update; brew upgrade; brew cu -y -q --cleanup;mas upgrade'
+  alias update='brew update; brew upgrade; brew cu -y -q --cleanup;mas upgrade'
 
+  alias clear_dns="sudo killall -HUP mDNSResponder" 
   # IP address - 13 charaters from the start to line up ip address'
   alias ip='echo "Public:      $(dig +short myip.opendns.com @resolver1.opendns.com)"; echo "Wireless:    $(ipconfig getifaddr en0)"; echo "Thunderbolt: $(ipconfig getifaddr en3)"'
   alias clearKeyboardSettings='sudo rm /Library/Preferences/com.apple.keyboardtype.plist'
+  alias dsf='diff-so-fancy | less -RFX'
 fi
 
 
@@ -113,7 +120,7 @@ alias ll='ls -lah --color=auto'
 alias l='ls -1' 
 
 # Git commands
-alias gs="git status"
+alias gs="git status -s"
 alias gp="git pull"
 alias ga="git add"
 alias gc="git commit -m"
@@ -129,9 +136,6 @@ alias vaggs='vagrant global-status'
 
 alias findip="grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'"
 
-# bat (cat alternative)
-#alias bat='bat -n'
-
 # Git check-ignore alternative
 alias gitcheckignore='git clean -dXn'
 
@@ -140,3 +144,15 @@ alias jql='jq -C | less'
 
 # add svn unversioned files
 alias svn-add-unversioned="svn st | grep '^\?' | sed 's/^\? *//' | xargs -I% svn add %"
+
+## Functions
+
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        tmux rename-window "$(echo $*)"
+        command ssh "$@"
+        tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+        command ssh "$@"
+    fi
+}
