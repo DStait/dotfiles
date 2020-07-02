@@ -53,6 +53,12 @@ brew "mysql-client"
 brew "ripgrep"
 brew "tfenv"
 brew "alextodicescu/tgenv/tgenv"
+brew "unrar"
+brew "diff-so-fancy"
+brew "ruby"
+brew "node"
+brew "sqlite"
+brew "z"
 
 # Apps
 cask 'alfred'
@@ -78,7 +84,9 @@ cask 'sensiblesidebuttons'
 cask "scroll-reverser"
 cask "alacritty"
 cask "aws-vault"
-cask "fsnotes"
+cask 'bbedit'
+cask 'maccy'
+
 
 # Work Apps
 # cask 'slack'
