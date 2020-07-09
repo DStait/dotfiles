@@ -24,8 +24,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 
-" plugins
+" Folding 
+set foldmethod=syntax " Syntax are used to specify folds"
+set foldlevelstart=10
 
+" plugins
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
