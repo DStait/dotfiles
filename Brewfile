@@ -79,6 +79,7 @@ cask "alacritty"
 cask "aws-vault"
 cask 'maccy'
 cask 'visual-studio-code' 
+cask  'steermouse' 
 
 
 # Work Apps
