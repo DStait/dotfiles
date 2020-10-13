@@ -64,8 +64,6 @@ cask 'iterm2'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
-cask 'vlc'
-cask 'vscodium'
 cask 'spotify'
 cask 'firefox'
 cask 'nextcloud'
@@ -73,15 +71,14 @@ cask 'the-unarchiver'
 cask 'postman'
 cask "itsycal"
 cask "mysqlworkbench"
-cask "mark-text"
 cask "vnc-viewer"
 cask "wireshark"
 cask 'sensiblesidebuttons'
 cask "scroll-reverser"
 cask "alacritty"
 cask "aws-vault"
-cask 'bbedit'
 cask 'maccy'
+cask 'visual-studio-code' 
 
 
 # Work Apps
