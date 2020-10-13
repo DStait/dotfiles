@@ -97,7 +97,6 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: false
 
-dynamic_title: true
 
 cursor:
   style: Beam
