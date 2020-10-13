@@ -90,10 +90,6 @@ colors:
 
   indexed_colors: []
 
-visual_bell:
-  animation: EaseOutExpo
-  duration: 0
-  color: '#ffffff'
 
 background_opacity: 1.0
 
