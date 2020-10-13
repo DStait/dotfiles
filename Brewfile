@@ -1,7 +1,5 @@
 
 tap 'homebrew/cask-versions'
-tap 'homebrew/cask-cask'
-tap 'homebrew/cask-versions'
 tap 'buo/cask-upgrade'
 tap "alextodicescu/tgenv"
 
@@ -49,12 +47,10 @@ brew "mysql-client"
 brew "ansible"
 brew "awscli"
 brew "diff-so-fancy"
-brew "mysql-client"
 brew "ripgrep"
 brew "tfenv"
 brew "alextodicescu/tgenv/tgenv"
 brew "unrar"
-brew "diff-so-fancy"
 brew "ruby"
 brew "node"
 brew "sqlite"
