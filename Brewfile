@@ -9,10 +9,6 @@ brew 'coreutils'
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew 'findutils', Args: ["with-default-names"]
 
-# Install Bash 4
-brew 'bash'
-brew 'bash-completion2'
-
 # Install zsh
 brew 'zsh'
 brew 'zsh-autosuggestions'
@@ -60,7 +56,6 @@ brew "z"
 cask 'alfred'
 cask "appcleaner"
 cask 'docker'
-cask 'iterm2'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
@@ -68,18 +63,14 @@ cask 'spotify'
 cask 'firefox'
 cask 'nextcloud'
 cask 'the-unarchiver'
-cask 'postman'
 cask "itsycal"
 cask "mysqlworkbench"
 cask "vnc-viewer"
 cask "wireshark"
-cask 'sensiblesidebuttons'
-cask "scroll-reverser"
 cask "alacritty"
 cask "aws-vault"
-cask 'maccy'
 cask 'visual-studio-code' 
-cask  'steermouse' 
+cask 'steermouse' 
 
 
 # Work Apps
