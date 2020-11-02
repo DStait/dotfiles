@@ -1,5 +1,3 @@
-
-tap 'homebrew/cask-versions'
 tap 'buo/cask-upgrade'
 tap "alextodicescu/tgenv"
 
@@ -51,6 +49,12 @@ brew "ruby"
 brew "node"
 brew "sqlite"
 brew "z"
+brew "awscli"
+brew "bitwarden-cli"
+brew "fx"
+brew "sngrep"
+brew "the_silver_searcher"
+
 
 # Apps
 cask 'alfred'
@@ -71,18 +75,18 @@ cask "alacritty"
 cask "aws-vault"
 cask 'visual-studio-code' 
 cask 'steermouse' 
+cask "authy"
+cask "google-chrome"
+cask "hammerspoon"
+cask "iina"
+cask "karabiner-elements"
+cask "mysqlworkbench"
+cask 'wireshark'
 
-
-# Work Apps
-# cask 'slack'
-# cask 'logitech-unifying'
-# cask 'wireshark'
-# cask 'vnc-viewer'
 
 # Install Mac App Store Apps
-
-# Work
 mas "Microsoft Remote Desktop", id: 715768417
 mas "Ethernet Status", id: 1186187538
 mas "Magnet", id: 441258766
 mas "Amphetamine", id: 937984704
+mas "Tot", id: 1491071483
