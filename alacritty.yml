@@ -22,11 +22,11 @@ scrolling:
   multiplier: 3
 
 shell:
-  program: /bin/bash
+  program: /usr/local/bin/zsh
   args:
     - -l
     - -c
-    - "tmux attach -t alacritty || tmux new -s alacritty"
+    - "tmux attach -t Alacritty || tmux new -s Alacritty"
 
 font:
   normal:
@@ -60,43 +60,41 @@ draw_bold_text_with_bright_colors: true
 # Oxide colors
 colors:
   primary:
-    background: '#212121'
-    foreground: '#c0c5ce'
-    bright_foreground: '#f3f4f5'
+    background: "#212121"
+    foreground: "#c0c5ce"
+    bright_foreground: "#f3f4f5"
 
   cursor:
-    text: '#212121'
-    cursor: '#c0c5ce'
+    text: "#212121"
+    cursor: "#c0c5ce"
 
   normal:
-    black:   '#212121'
-    red:     '#e57373'
-    green:   '#a6bc69'
-    yellow:  '#fac863'
-    blue:    '#6699cc'
-    magenta: '#c594c5'
-    cyan:    '#5fb3b3'
-    white:   '#c0c5ce'
+    black: "#212121"
+    red: "#e57373"
+    green: "#a6bc69"
+    yellow: "#fac863"
+    blue: "#6699cc"
+    magenta: "#c594c5"
+    cyan: "#5fb3b3"
+    white: "#c0c5ce"
 
   bright:
-    black:   '#5c5c5c'
-    red:     '#e57373'
-    green:   '#a6bc69'
-    yellow:  '#fac863'
-    blue:    '#6699cc'
-    magenta: '#c594c5'
-    cyan:    '#5fb3b3'
-    white:   '#f3f4f5'
+    black: "#5c5c5c"
+    red: "#e57373"
+    green: "#a6bc69"
+    yellow: "#fac863"
+    blue: "#6699cc"
+    magenta: "#c594c5"
+    cyan: "#5fb3b3"
+    white: "#f3f4f5"
 
   indexed_colors: []
 
-
-background_opacity: 1.0
+background_opacity: 0.97
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: false
-
 
 cursor:
   style: Beam
@@ -114,28 +112,58 @@ mouse:
 
   hide_when_typing: false
 
-
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
 key_bindings:
-  - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: C,        mods: Control|Shift, action: Copy             }
-  - { key: Insert,   mods: Shift,         action: PasteSelection   }
-  - { key: Key0,     mods: Control,       action: ResetFontSize    }
-  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  - { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
-  - { key: Return,   mods: Alt,           action: ToggleFullscreen }
-  - { key: Paste,                         action: Paste            }
-  - { key: Copy,                          action: Copy             }
-  - { key: L,        mods: Control,       action: ClearLogNotice   }
-  - { key: L,        mods: Control,       chars: "\x0c"            }
-  - { key: PageUp,   mods: Shift,         action: ScrollPageUp,   mode: ~Alt }
-  - { key: PageDown, mods: Shift,         action: ScrollPageDown, mode: ~Alt }
-  - { key: Home,     mods: Shift,         action: ScrollToTop,    mode: ~Alt }
-  - { key: End,      mods: Shift,         action: ScrollToBottom, mode: ~Alt }
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Add, mods: Control, action: IncreaseFontSize }
+  - { key: Subtract, mods: Control, action: DecreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: Return, mods: Alt, action: ToggleFullscreen }
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\x0c" }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+  - { key: Key1, mods: Alt, chars: "\x1b1" }
+  - { key: Key1, mods: Command, chars: "\x1b1" }
+  - { key: Key2, mods: Alt, chars: "\x1b2" }
+  - { key: Key2, mods: Command, chars: "\x1b2" }
+  - { key: Key3, mods: Alt, chars: "\x1b3" }
+  - { key: Key3, mods: Command, chars: "\x1b3" }
+  - { key: Key4, mods: Alt, chars: "\x1b4" }
+  - { key: Key4, mods: Command, chars: "\x1b4" }
+  - { key: Key5, mods: Alt, chars: "\x1b5" }
+  - { key: Key5, mods: Command, chars: "\x1b5" }
+  - { key: Key6, mods: Alt, chars: "\x1b6" }
+  - { key: Key6, mods: Command, chars: "\x1b6" }
+  - { key: Key7, mods: Alt, chars: "\x1b7" }
+  - { key: Key7, mods: Command, chars: "\x1b7" }
+  - { key: Key8, mods: Alt, chars: "\x1b8" }
+  - { key: Key8, mods: Command, chars: "\x1b8" }
+  - { key: Key9, mods: Alt, chars: "\x1b9" }
+  - { key: Key9, mods: Command, chars: "\x1b9" }
+  - { key: Key0, mods: Alt, chars: "\x1b0" }
+  - { key: P, mods: Alt, chars: "\x1bp" }
+  - { key: N, mods: Alt, chars: "\x1bn" }
+  - { key: H, mods: Alt, chars: "\x1bh" }
+  - { key: J, mods: Alt, chars: "\x1bj" }
+  - { key: K, mods: Alt, chars: "\x1bk" }
+  - { key: L, mods: Alt, chars: "\x1bl" }
+  - { key: Z, mods: Alt, chars: "\x1bz" }
+  - { key: V, mods: Alt, chars: "\x1bv" }
+  - { key: H, mods: Alt|Shift, chars: "\x1bH" }
+  - { key: J, mods: Alt|Shift, chars: "\x1bJ" }
+  - { key: K, mods: Alt|Shift, chars: "\x1bK" }
+  - { key: L, mods: Alt|Shift, chars: "\x1bL" }
 
 debug:
   render_timer: false
