@@ -145,8 +145,8 @@ defaults write com.apple.dock autohide -bool true
 # 11: Launchpad
 # 12: Notification Center
 # Top right screen corner → Start Screen Saver
-defaults write com.apple.dock wvous-tr-corner -int 5
-defaults write com.apple.dock wvous-tr-modifier -int 0
+# defaults write com.apple.dock wvous-tr-corner -int 5
+# defaults write com.apple.dock wvous-tr-modifier -int 0
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Dark menu bar and dock
