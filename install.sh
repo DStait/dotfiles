@@ -103,6 +103,8 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   touch ~/.hushlogin
   install_zsh
   curl -LJ https://raw.githubusercontent.com/dikiaap/dotfiles/master/.oh-my-zsh/themes/oxide.zsh-theme -o ~/.oh-my-zsh/themes/oxide.zsh-theme # install zsh-theme
+  ln -s ~/dotfiles/hammerspoon ~/.hammerspoon 
+  mkdir -p ~/.config/karabiner/ && ln -s ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json 
 fi
 
 # Ubuntu Setup
