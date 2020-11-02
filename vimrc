@@ -44,6 +44,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-eunuch'
 Plug 'itchyny/lightline.vim'
+Plug 'Chiel92/vim-autoformat'
 
 " Initialize plugin system
 call plug#end()
