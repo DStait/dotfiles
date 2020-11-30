@@ -20,7 +20,6 @@ end)
 
 -- Quick Reloading of Hammerspoon
 hyper.bindKey('r', function()
-    --hs.reload()
     hs.alert.show("Hammerspoon reloading")
     hs.timer.doAfter(0.5, hs.reload)
 end)
@@ -33,9 +32,11 @@ end)
 -- Open chrome tabs
 hyper.bindKey('s', chrome_active_tab_with_name("Slack"))
 hyper.bindKey('g', chrome_active_tab_with_name("Vonage Mail"))
+hyper.bindKey('a', chrome_active_tab_with_name("PagerDuty"))
+hyper.bindKey('j', chrome_active_tab_with_name("Kanban"))
 
 -- Open Apps
-hyper.bindKey('b', open("Microsoft Edge"))
+hyper.bindKey('b', open("Chrome"))
 hyper.bindKey('c', open("Visual Studio Code"))
 hyper.bindKey('t', open("Alacritty"))
 hyper.bindKey('e', open("Finder"))
