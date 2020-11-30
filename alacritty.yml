@@ -4,8 +4,8 @@ env:
 
 window:
   dimensions:
-    columns: 160
-    lines: 60
+    columns: 250
+    lines: 75
 
   padding:
     x: 10
@@ -121,8 +121,6 @@ key_bindings:
   - { key: Insert, mods: Shift, action: PasteSelection }
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
-  - { key: Add, mods: Control, action: IncreaseFontSize }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
   - { key: Return, mods: Alt, action: ToggleFullscreen }
   - { key: Paste, action: Paste }
