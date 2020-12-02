@@ -61,6 +61,8 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 
 
+" Allow saving of files as sudo when I forget to start vim using sudo
+cmap w!! w !sudo tee > /dev/null %
 
 " keybindings
 map <C-n> :NERDTreeToggle<CR>
