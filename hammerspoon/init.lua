@@ -29,6 +29,10 @@ hyper.bindShiftKey('p', function()
     hs.spotify.displayCurrentTrack()
 end)
 
+hyper.bindCtrlKey('c', function()
+  hs.application.launchOrFocus("/Users/dstait/Applications/Chrome Apps.localized/Google Calendar.app")
+end)
+
 -- Open chrome tabs
 hyper.bindKey('s', chrome_active_tab_with_name("Slack"))
 hyper.bindKey('g', chrome_active_tab_with_name("Vonage Mail"))
