@@ -42,6 +42,11 @@ function This.bindKey(key, handler)
 end
 
 -- Utility to bind handler to Hyper+Shift+key
+function This.bindCtrlKey(key, handler)
+   This.hyperMode:bind({'ctrl'}, key, handler)
+end
+
+-- Utility to bind handler to Hyper+Shift+key
 function This.bindShiftKey(key, handler)
    This.hyperMode:bind({'shift'}, key, handler)
 end
