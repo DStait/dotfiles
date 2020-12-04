@@ -1,6 +1,8 @@
 require "password_from_keychain"
 require "chrome_active_tab_with_name"
 require "open_app"
+require 'movement_timer'
+require 'pagerduty'
 local am = require('app-management')
 -- Load and install the Hyper key extension. Binding to F18
 local hyper = require('hyper')
