@@ -103,7 +103,7 @@ function gen_url_string(key, values)
 end
 
 function pd_check(userID, urgencies, statuses)
-    local pd_incidents_url = pd_url .. "incidents?user_ids%5B%5D=" .. userID  .. gen_url_string("urgencies", urgencies) .. gen_url_string("status", statuses)
+    local pd_incidents_url = pd_url .. "incidents?user_ids%5B%5D=" .. userID  .. gen_url_string("urgencies", urgencies) .. gen_url_string("statuses", statuses)
     local pd_http_response,pd_body_response, pd_response_headers = hs.http.get(pd_incidents_url, pd_headers)
     local json_pd_result = hs.json.decode(pd_body_response)
 
