@@ -107,3 +107,21 @@ alias jql='jq -C | less'
 alias svn-add-unversioned="svn st | grep '^\?' | sed 's/^\? *//' | xargs -I% svn add %"
 alias digs='dig +short'
 alias h='history'
+
+# Functions
+function to() {
+    q=" $*"
+    q=${q// -/ !}
+    cd $(fzf -1 +m -q "$q" < ~/.config/to)
+    return
+}
+function bm() {
+    mkdir -p ~/.cache
+    touch ~/.config/to
+    if egrep $PWD'$' ~/.config/to
+    then
+        echo ...already exists
+    else
+        echo "$PWD" >> ~/.config/to
+    fi
+}
