@@ -54,25 +54,24 @@ brew "fx"
 brew "sngrep"
 brew "the_silver_searcher"
 
-
 # Apps
-cask 'alfred'
+cask "alfred"
 cask "appcleaner"
-cask 'docker'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
-cask 'spotify'
-cask 'firefox'
-cask 'nextcloud'
-cask 'the-unarchiver'
+cask "docker"
+cask "vagrant"
+cask "virtualbox"
+cask "virtualbox-extension-pack"
+cask "spotify"
+cask "firefox"
+cask "nextcloud"
+cask "the-unarchiver"
 cask "itsycal"
 cask "mysqlworkbench"
 cask "vnc-viewer"
 cask "wireshark"
 cask "alacritty"
 cask "aws-vault"
-cask 'visual-studio-code' 
+cask "visual-studio-code" 
 cask 'steermouse' 
 cask "authy"
 cask "google-chrome"
@@ -80,8 +79,9 @@ cask "hammerspoon"
 cask "iina"
 cask "karabiner-elements"
 cask "mysqlworkbench"
-cask 'wireshark'
-
+cask "wireshark"
+cask "sequel-ace"
+cask "meetingbar"
 
 # Install Mac App Store Apps
 mas "Microsoft Remote Desktop", id: 1295203466
