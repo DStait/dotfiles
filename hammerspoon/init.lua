@@ -1,3 +1,6 @@
+-- Spoons
+hs.loadSpoon('Shade')
+
 require "password_from_keychain"
 require "chrome_active_tab_with_name"
 require "open_app"
@@ -9,6 +12,12 @@ local hyper = require('hyper')
 hyper.install('F18')
 
 
+-- Cmd-Shift-F10 - type vpn password
+hs.hotkey.bind({"cmd", "shift"}, "F10", function()
+  paste_keychain_item("VPN_PASSWORD")
+  hs.eventtap.keyStroke({}, "return")
+  hs.eventtap.keyStroke({"cmd"}, "h")
+end)
 -- Cmd-Shift-F11 - type linux password
 hs.hotkey.bind({"cmd", "shift"}, "F11", function()
   paste_keychain_item("LINUX_PASSWORD")
