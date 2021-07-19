@@ -23,6 +23,7 @@ local pd_headers = {Authorization = "Token token=" .. pd_user_token, Accept = "a
 local pd_headers_post = {Authorization = "Token token=" .. pd_user_token ,Accept = "application/vnd.pagerduty+json;version=2", From = pd_user_email, ["Content-Type"] = "application/json"}
 
 
+
 function pd_incident_acknowledge(incident)
     local body = '{"incidents": [{"type": "incident", "id": "' .. incident.id .. '", "status": "acknowledged", "title": "'.. incident.title .. '"}]}'
     local a_http_response,a_body_response, a_response_headers = hs.http.doRequest(pd_url ..  "incidents", "PUT", body, pd_headers_post)
@@ -84,6 +85,31 @@ function tablelength(T)
     local count = 0
     for _ in pairs(T) do count = count + 1 end
     return count
+end
+
+-- https://stackoverflow.com/questions/46750313/comparing-tables-in-lua-where-keys-are-tables
+function compare(one, two)
+    if type(one) == type(two) then
+        if type(one) == "table" then
+            if #one == #two then
+                -- If both types are the same, both are tables and 
+                -- the tables are the same size, recurse through each
+                -- table entry.
+                for loop=1, #one do
+                    if compare(one[loop], two[loop]) == false then
+                        return false
+                    end
+                end 
+                -- All table contents match
+                return true
+            end
+        else
+            -- Values are not tables but matching types. Compare
+            -- them and return if they match
+            return one == two
+        end
+    end
+    return false
 end
 
 function open_url(url)
@@ -161,11 +187,14 @@ function pagerduty_gen_menu(i)
 end
 
 -- doEvery doesn't have option to continue on error
-check_pd = hs.timer.new(60, 
-    function() 
+check_pd = hs.timer.new(60,
+    function()
         incidents = pd_check(pd_user_id, pd_notif_urgencies, pd_notif_statuses)
-        pd_notify(incidents) 
-    end, 
+        if compare(incidents, prev_incidents) ~= true then
+            pd_notify(incidents)
+        end
+        prev_incidents = incidents
+    end,
     true
 ):start():fire()
 

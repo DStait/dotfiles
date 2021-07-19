@@ -25,6 +25,7 @@ plugins=(
   docker-compose
   git
   kitchen
+  knife
 )
 
 
@@ -55,6 +56,7 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   alias flush_dns="sudo killall -HUP mDNSResponder" 
   alias clearKeyboardSettings='sudo rm /Library/Preferences/com.apple.keyboardtype.plist'
   alias dsf='diff-so-fancy | less -RFX'
+	alias gzip='pigz'
 fi
 
 
@@ -71,7 +73,7 @@ fi
 ##         Global          ##
 #############################
 
-export EDITOR=$(which vim)
+export EDITOR=$(which nvim)
 setopt shwordsplit
 
 # Source oh-my-zsh, functions, local settings and custom autocomplete
@@ -86,6 +88,9 @@ if [ -n "$SSH_CLIENT" ]; then
 fi
 
 ## Aliases
+
+alias vim="nvim"
+
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 # Color ls

@@ -4,7 +4,7 @@ env:
 
 window:
   dimensions:
-    columns: 250
+    columns: 200
     lines: 75
 
   padding:
@@ -22,7 +22,7 @@ scrolling:
   multiplier: 3
 
 shell:
-  program: /usr/local/bin/zsh
+  program: /usr/local/bin/fish
   args:
     - -l
     - -c
@@ -89,6 +89,7 @@ colors:
     white: "#f3f4f5"
 
   indexed_colors: []
+
 
 background_opacity: 0.995
 

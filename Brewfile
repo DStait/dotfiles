@@ -53,6 +53,7 @@ brew "bitwarden-cli"
 brew "fx"
 brew "sngrep"
 brew "the_silver_searcher"
+brew "pigz"
 
 # Apps
 cask "alfred"
