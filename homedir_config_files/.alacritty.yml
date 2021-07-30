@@ -57,38 +57,70 @@ font:
 
 draw_bold_text_with_bright_colors: true
 
-# Oxide colors
-colors:
-  primary:
-    background: "#212121"
-    foreground: "#c0c5ce"
-    bright_foreground: "#f3f4f5"
 
-  cursor:
-    text: "#212121"
-    cursor: "#c0c5ce"
+schemes:
+  oxide: &dark
+  
+    primary:
+      background: "#212121"
+      foreground: "#c0c5ce"
+      bright_foreground: "#f3f4f5"
+    
+    cursor:
+      text: "#212121"
+      cursor: "#c0c5ce"
+    
+    normal:
+      black: "#212121"
+      red: "#e57373"
+      green: "#a6bc69"
+      yellow: "#fac863"
+      blue: "#6699cc"
+      magenta: "#c594c5"
+      cyan: "#5fb3b3"
+      white: "#c0c5ce"
+    
+    bright:
+      black: "#5c5c5c"
+      red: "#e57373"
+      green: "#a6bc69"
+      yellow: "#fac863"
+      blue: "#6699cc"
+      magenta: "#c594c5"
+      cyan: "#5fb3b3"
+      white: "#f3f4f5"
+      
+    indexed_colors: []
+  papercolor-light: &light
+    primary:
+      background: '0xeeeeee'
+      foreground: '0x878787'
 
-  normal:
-    black: "#212121"
-    red: "#e57373"
-    green: "#a6bc69"
-    yellow: "#fac863"
-    blue: "#6699cc"
-    magenta: "#c594c5"
-    cyan: "#5fb3b3"
-    white: "#c0c5ce"
+    cursor:
+      text: '0xeeeeee'
+      cursor: '0x878787'
 
-  bright:
-    black: "#5c5c5c"
-    red: "#e57373"
-    green: "#a6bc69"
-    yellow: "#fac863"
-    blue: "#6699cc"
-    magenta: "#c594c5"
-    cyan: "#5fb3b3"
-    white: "#f3f4f5"
+    normal:
+      black:   '0xeeeeee'
+      red:     '0xaf0000'
+      green:   '0x008700'
+      yellow:  '0x5f8700'
+      blue:    '0x0087af'
+      magenta: '0x878787'
+      cyan:    '0x005f87'
+      white:   '0x444444'
 
-  indexed_colors: []
+    bright:
+      black:   '0xbcbcbc'
+      red:     '0xd70000'
+      green:   '0xd70087'
+      yellow:  '0x8700af'
+      blue:    '0xd75f00'
+      magenta: '0xd75f00'
+      cyan:    '0x005faf'
+      white:   '0x005f87'
+
+colors: *dark
 
 
 background_opacity: 0.995
