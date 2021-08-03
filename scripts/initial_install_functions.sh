@@ -7,7 +7,7 @@ function symlink_files() {
     local timeNow=$(date "+%F-%H%M%S")
     local backupDirName="symlinkBackup-${timeNow}"
 
-    for file in $(ls -a $source_dir); do
+    for file in $(ls -A $source_dir); do
         # If file exists and is not a symlink we back it up
         if [[ -f "${dest_dir}/${file}" && ! -L "${dest_dir}/${file}" ]]; then
             mkdir "${dest_dir}/${backupDirName}" 2> /dev/null
