@@ -4,9 +4,6 @@ dir=~/dotfiles       # dotfiles directory
 PLATFORM=$(uname)    # Linux or Darwin (MacOS)
 
 
-source ./scripts/initial_install_functions.sh
-
-
 # Check if MacOS & install requirements if needed
 if [[ $PLATFORM == 'Darwin' ]]; then
   
@@ -35,6 +32,8 @@ if [ ! -d $dir ]; then
 else 
   cd $dir && git pull
 fi
+
+source ./scripts/initial_install_functions.sh
 
 # Symlink files into home dir
 symlink_files "${dir}/homedir_config_files" ${HOME}
