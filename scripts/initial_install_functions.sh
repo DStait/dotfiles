@@ -62,8 +62,7 @@ function install_fish() {
         # Install fisher
         if ! $(fish -c "fisher" &> /dev/null) ; then
             echo "Install fish plugins"
-            fish -c "curl -sL https://git.io/fisher | source"
-            fish -c "fisher update"
+            fish -c "curl -sL https://git.io/fisher | source && fisher update"
         fi
 
         # Add to /etc/shells
