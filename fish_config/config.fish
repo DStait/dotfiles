@@ -1,9 +1,13 @@
 # PATH 
 fish_add_path ~/bin
+fish_add_path /usr/local/opt/mysql-client/bin
 # Secrets to be kept out of git
-source ~/.config/fish/fish_secrets
+if test -e ~/.config/fish/fish_secrets
+  source ~/.config/fish/fish_secrets
+end
 
 alias vim "nvim"
+alias vag "vagrant"
 
 alias dl "cd ~/Downloads"
 alias dt "cd ~/Desktop"
