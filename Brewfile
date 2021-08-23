@@ -86,7 +86,5 @@ cask "meetingbar"
 
 # Install Mac App Store Apps
 mas "Microsoft Remote Desktop", id: 1295203466
-mas "Ethernet Status", id: 1186187538
-mas "Magnet", id: 441258766
 mas "Amphetamine", id: 937984704
 mas "Tot", id: 1491071483
