@@ -6,22 +6,23 @@ require "chrome_active_tab_with_name"
 require "open_app"
 -- require 'movement_timer'
 require 'pagerduty'
+require 'ethernet_menu'
 local am = require('app-management')
 -- Load and install the Hyper key extension. Binding to F18
 local hyper = require('hyper')
 hyper.install('F18')
 
+require "window_management"
+require "window_keybinding"
 
 -- Cmd-Shift-F10 - type vpn password
 hs.hotkey.bind({"cmd", "shift"}, "F10", function()
-  -- paste_keychain_item("VPN_PASSWORD")
   paste_sec_item("VPNPassword")
   hs.eventtap.keyStroke({}, "return")
   hs.eventtap.keyStroke({"cmd"}, "h")
 end)
 -- Cmd-Shift-F11 - type linux password
 hs.hotkey.bind({"cmd", "shift"}, "F11", function()
-  -- paste_keychain_item("LINUX_PASSWORD")
   paste_sec_item("linuxPassword")
 end)
 -- Cmd-Shift-F12 - type sudo -i and  linux password
@@ -46,19 +47,7 @@ hyper.bindCtrlKey('c', function()
   hs.application.launchOrFocus("/Users/dstait/Applications/Chrome Apps.localized/Google Calendar.app")
 end)
 
--- Open chrome tabs
--- hyper.bindKey('s', chrome_active_tab_with_name("Slack"))
--- hyper.bindKey('g', chrome_active_tab_with_name("Vonage Mail"))
--- hyper.bindKey('a', chrome_active_tab_with_name("PagerDuty"))
--- hyper.bindKey('j', chrome_active_tab_with_name("Kanban"))
-
--- Open Apps
--- hyper.bindKey('a', open("Google Chrome"))
--- hyper.bindKey('c', open("Visual Studio Code"))
--- hyper.bindKey('d', open("Alacritty"))
--- hyper.bindKey('e', open("Finder"))
--- hyper.bindKey('s', open("Slack"))
--- hyper.bindKey('g', open("Spark"))
+-- Open tot
 hyper.bindKey('/', function() hs.eventtap.keyStroke({"ctrl", "alt", "cmd"}, "s") end)
 
 -- Show the bundleID of the currently open window
