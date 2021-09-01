@@ -59,7 +59,9 @@ fi
 
 # Ubuntu Setup
 if [[ -f /etc/debian_version ]]; then
-  continue
+  symlink_files "${dir}/fish_config" ~/.config/fish/
+  ./scripts/symlink_fish_functions.sh
+  install_fish
 fi
 
 

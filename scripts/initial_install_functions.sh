@@ -7,6 +7,9 @@ function symlink_files() {
     local timeNow=$(date "+%F-%H%M%S")
     local backupDirName="symlinkBackup-${timeNow}"
 
+    # Make sure dest directory exists
+    mkdir -p $dest_dir
+
     for file in $(ls -A $source_dir); do
         # If file exists and is not a symlink we back it up
         if [[ -f "${dest_dir}/${file}" && ! -L "${dest_dir}/${file}" ]]; then
@@ -56,14 +59,8 @@ function install_zsh () {
 
 function install_fish() {
 
-    # Test to see if fish is installed.
-    if [ -f /usr/local/bin/fish ]; then
-
-        # Install fisher
-        if ! $(fish -c "fisher" &> /dev/null) ; then
-            echo "Install fish plugins"
-            fish -c "curl -sL https://git.io/fisher | source && fisher update"
-        fi
+    # MacOS - Test to see if fish is installed.
+    if [ -f /usr/local/bin/fish ] && [ $PLATFORM == 'Darwin' ]; then
 
         # Add to /etc/shells
         if ! grep fish /etc/shells ; then
@@ -76,16 +73,29 @@ function install_fish() {
             echo "Set fish as shell"
             chsh -s $(command -v fish)
         fi
+    # We only have to install fisher on Linux
+    elif [ -f /usr/bin/fish ] && [ $PLATFORM == 'Linux' ]; then 
+        install_fisher
     else
         # Install fish shell
         if [[ $PLATFORM == 'Linux' ]]; then
             if [[ -f /etc/debian_version ]]; then
+                echo "Fish is not installed, installing now.."
+                sudo apt-add-repository ppa:fish-shell/release-3 -y
+                sudo apt-get update
                 sudo apt-get install fish -y
                 install_fish
+                install_fisher
             fi
         elif [[ $PLATFORM == 'Darwin' ]]; then
+            echo "Fish is not installed, installing now.."
             brew install fish
             install_fish
         fi
     fi
+}
+
+function install_fisher() {
+    echo "Install fisher and plugins"
+    fish -c "curl -sL https://git.io/fisher | source && fisher update"
 }
