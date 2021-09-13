@@ -1,11 +1,12 @@
 -- Spoons
 hs.loadSpoon('Shade')
 
+require "lua_functions"
 require "password_from_keychain"
 require "chrome_active_tab_with_name"
 require "open_app"
 -- require 'movement_timer'
-require 'pagerduty'
+if file_exists('pagerduty_credentials.lua') then require 'pagerduty' end
 require 'ethernet_menu'
 local am = require('app-management')
 -- Load and install the Hyper key extension. Binding to F18
