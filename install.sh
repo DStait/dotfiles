@@ -49,7 +49,7 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   ./scripts/macos_setup.sh      # Set my MacOS settings
   touch ~/.hushlogin            # Hide login message
   ln -fs "${dir}/hammerspoon" ~/.hammerspoon 
-  #mkdir -p ~/.config/karabiner/ && ln -fs "${dir}/karabiner.json" ~/.config/karabiner/karabiner.json 
+  mkdir -p ~/Library/LaunchAgents 
   # Copy launchagent to change right option to F18 for Hyper key
   ln -fs "${dir}/com.local.KeyRemapping.plist" ~/Library/LaunchAgents/com.local.KeyRemapping.plist
   symlink_files "${dir}/fish_config" ~/.config/fish/
