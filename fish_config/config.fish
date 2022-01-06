@@ -1,6 +1,6 @@
 # PATH 
 fish_add_path ~/bin
-fish_add_path /usr/local/opt/mysql-client/bin
+
 # Secrets to be kept out of git
 if test -e ~/.config/fish/fish_secrets
   source ~/.config/fish/fish_secrets
@@ -12,11 +12,12 @@ alias vag "vagrant"
 alias dl "cd ~/Downloads"
 alias dt "cd ~/Desktop"
 # Git commands
-alias gs "git status -s"
+alias gs "git status"
 alias gp "git pull"
 alias ga "git add"
 alias gc "git commit -m"
 alias gd 'git diff'
+alias grb 'git rebase -i origin/master' 
 
 # Git check-ignore alternative
 alias gitcheckignore 'git clean -dXn'

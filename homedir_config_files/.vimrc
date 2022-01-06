@@ -12,6 +12,8 @@ set backspace=indent,eol,start
 set hlsearch
 set laststatus=2
 set noshowmode
+set shell=/bin/bash
+let mapleader = ","
 
 " highlight color for paren
 hi MatchParen cterm=bold ctermbg=none ctermfg=white
@@ -45,6 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-eunuch'
 Plug 'itchyny/lightline.vim'
 Plug 'Chiel92/vim-autoformat'
+Plug 'wesQ3/vim-windowswap'
 
 " Initialize plugin system
 call plug#end()
