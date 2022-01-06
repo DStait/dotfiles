@@ -1,5 +1,6 @@
 # PATH 
 fish_add_path ~/bin
+fish_add_path /opt/homebrew/bin
 
 # Secrets to be kept out of git
 if test -e ~/.config/fish/fish_secrets

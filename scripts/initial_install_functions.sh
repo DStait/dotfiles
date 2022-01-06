@@ -60,7 +60,7 @@ function install_zsh () {
 function install_fish() {
 
     # MacOS - Test to see if fish is installed.
-    if [ -f /usr/local/bin/fish ] && [ $PLATFORM == 'Darwin' ]; then
+    if [ -f /opt/homebrew/bin/fish ] && [ $PLATFORM == 'Darwin' ]; then
 
         # Add to /etc/shells
         if ! grep fish /etc/shells ; then

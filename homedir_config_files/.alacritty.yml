@@ -22,7 +22,7 @@ scrolling:
   multiplier: 3
 
 shell:
-  program: /usr/local/bin/fish
+  program: /opt/homebrew/bin/fish
   args:
     - -l
     - -c

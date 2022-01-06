@@ -1,5 +1,4 @@
 tap 'buo/cask-upgrade'
-tap "alextodicescu/tgenv"
 
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
@@ -32,18 +31,13 @@ brew 'git'
 brew 'watch'
 brew 'pv'
 brew 'bat'
-brew 'packer'
 brew "httpie"
 brew "speedtest-cli"
-brew "subversion"
-brew "telnet"
-brew "mysql-client" 
 brew "ansible"
 brew "awscli"
 brew "diff-so-fancy"
 brew "ripgrep"
 brew "tfenv"
-brew "alextodicescu/tgenv/tgenv"
 brew "unrar"
 brew "ruby"
 brew "node"
@@ -66,8 +60,6 @@ cask "spotify"
 cask "firefox"
 cask "nextcloud"
 cask "the-unarchiver"
-cask "itsycal"
-cask "mysqlworkbench"
 cask "vnc-viewer"
 cask "wireshark"
 cask "alacritty"
@@ -75,14 +67,9 @@ cask "aws-vault"
 cask "visual-studio-code" 
 cask 'steermouse' 
 cask "authy"
-cask "google-chrome"
 cask "hammerspoon"
 cask "iina"
-cask "karabiner-elements"
-cask "mysqlworkbench"
-cask "wireshark"
 cask "sequel-ace"
-cask "meetingbar"
 
 # Install Mac App Store Apps
 mas "Microsoft Remote Desktop", id: 1295203466
