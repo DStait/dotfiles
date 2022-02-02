@@ -2,12 +2,14 @@
 fish_add_path ~/bin
 fish_add_path /opt/homebrew/bin
 
+set -xg EDITOR 'vim'
+
 # Secrets to be kept out of git
 if test -e ~/.config/fish/fish_secrets
   source ~/.config/fish/fish_secrets
 end
 
-alias vim "nvim"
+#alias vim "nvim"
 alias vag "vagrant"
 
 alias dl "cd ~/Downloads"

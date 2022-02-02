@@ -1,0 +1,1 @@
+complete -x -c login-aws -d "Profile" -a "(aws-vault ls | grep -Ev  '^(_|-|Profile|=)' | cut -d ' ' -f 1)"

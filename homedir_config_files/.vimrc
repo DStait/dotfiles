@@ -15,6 +15,12 @@ set noshowmode
 set shell=/bin/bash
 let mapleader = ","
 
+
+" Slime config
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+
 " highlight color for paren
 hi MatchParen cterm=bold ctermbg=none ctermfg=white
 
@@ -48,6 +54,9 @@ Plug 'tpope/vim-eunuch'
 Plug 'itchyny/lightline.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'wesQ3/vim-windowswap'
+Plug 'jpalardy/vim-slime'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " Initialize plugin system
 call plug#end()
