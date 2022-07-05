@@ -1,6 +1,7 @@
 # PATH 
 fish_add_path ~/bin
 fish_add_path /opt/homebrew/bin
+fish_add_path ~/.local/bin
 
 set -xg EDITOR 'vim'
 
@@ -21,6 +22,7 @@ alias ga "git add"
 alias gc "git commit -m"
 alias gd 'git diff'
 alias grb 'git rebase -i origin/master' 
+alias gcom 'git checkout main 2> /dev/null || git checkout master'
 
 # Git check-ignore alternative
 alias gitcheckignore 'git clean -dXn'
@@ -31,3 +33,5 @@ alias jql='jq -C | less'
 # add svn unversioned files
 alias svn-add-unversioned "svn st | grep '^\?' | sed 's/^\? *//' | xargs -I% svn add %"
 alias digs 'dig +short'
+
+alias whoamiaws "aws sts get-caller-identity"
