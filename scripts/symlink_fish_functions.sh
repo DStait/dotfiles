@@ -9,9 +9,9 @@ source "${SCRIPT_DIR}/initial_install_functions.sh"
 default_fish_function_dir="${HOME}/.config/fish/functions"
 personal_fish_function_dir="${HOME}/dotfiles/fish_functions"
 
-default_fish_completion_dir="${HOME}/.config/fish/completions"
-personal_fish_completion_dir="${HOME}/dotfiles/fish_completions"
+# default_fish_completion_dir="${HOME}/.config/fish/completions"
+# personal_fish_completion_dir="${HOME}/dotfiles/fish_completions"
 
 
 symlink_files $personal_fish_function_dir $default_fish_function_dir
-symlink_files $personal_fish_completion_dir $default_fish_completion_dir
+# symlink_files $personal_fish_completion_dir $default_fish_completion_dir
