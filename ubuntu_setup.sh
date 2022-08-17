@@ -9,6 +9,9 @@ packages=(
     docker.io
     tree
     jq
+    python3
+    python3-pip
+    python3-venv
 )
 
 # Update the system
