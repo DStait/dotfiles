@@ -1,4 +1,4 @@
-function venv --description "Creates a python venv"
+function venv --description "Manages python venvs"
     set -l COMMAND "$argv[1]" 
     set -l NAME "$argv[2]"
 
@@ -25,6 +25,7 @@ function venv --description "Creates a python venv"
             if not _venv_check $CONF_FILE $NAME
                 python3 -m venv "$VENV_DIR/$NAME"
                 echo "$NAME,$CUR_DIR" >> $CONF_FILE
+                source $VENV_DIR/$NAME/bin/activate.fish
             else
                 echo "venv $NAME already exists"
             end
