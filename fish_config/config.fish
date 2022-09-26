@@ -10,7 +10,12 @@ if test -e ~/.config/fish/fish_secrets
   source ~/.config/fish/fish_secrets
 end
 
-#alias vim "nvim"
+if [ (uname) = "Darwin" ]
+  alias brew='arch -arm64 /opt/homebrew/bin/brew'
+  alias brewx='arch -x86_64 /usr/local/bin/brew'
+  alias sed='gsed'
+end
+
 alias vag "vagrant"
 
 alias dl "cd ~/Downloads"
