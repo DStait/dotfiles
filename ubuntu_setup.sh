@@ -12,6 +12,7 @@ packages=(
     python3
     python3-pip
     python3-venv
+    golang-docker-credential-helpers
 )
 
 # Update the system
