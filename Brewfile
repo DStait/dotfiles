@@ -6,12 +6,6 @@ brew 'coreutils'
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew 'findutils', Args: ["with-default-names"]
 
-# Install zsh
-brew 'zsh'
-brew 'zsh-autosuggestions'
-brew 'zsh-syntax-highlighting'
-
-
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew 'gnu-sed', Args: ["with-default-names"]
 
@@ -53,9 +47,6 @@ brew "pigz"
 cask "alfred"
 cask "appcleaner"
 cask "docker"
-cask "vagrant"
-cask "virtualbox"
-cask "virtualbox-extension-pack"
 cask "spotify"
 cask "firefox"
 cask "nextcloud"
@@ -65,13 +56,11 @@ cask "wireshark"
 cask "alacritty"
 cask "aws-vault"
 cask "visual-studio-code" 
-cask 'steermouse' 
+cask "steermouse"
 cask "authy"
 cask "hammerspoon"
 cask "iina"
-cask "sequel-ace"
 
 # Install Mac App Store Apps
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Amphetamine", id: 937984704
 mas "Tot", id: 1491071483
