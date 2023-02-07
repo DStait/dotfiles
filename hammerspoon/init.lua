@@ -1,5 +1,5 @@
 -- Spoons
-hs.loadSpoon('Shade')
+-- hs.loadSpoon('Shade')
 
 require "lua_functions"
 require "password_from_keychain"

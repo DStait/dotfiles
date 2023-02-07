@@ -42,6 +42,8 @@ symlink_files "${dir}/homedir_config_files" ${HOME}
 if [[ $PLATFORM == 'Darwin' ]]; then
   # Keep-alive: update existing `sudo` time stamp 
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+  # So brew command can be found for ARM Macs
+  export PATH="/opt/homebrew/bin:$PATH"
   brew update                   # Make sure we’re using the latest Homebrew.
   brew upgrade                  # Upgrade any already-installed formulae.
   brew tap homebrew/bundle      # Install bundle to install our Apps later on

@@ -42,3 +42,7 @@ alias svn-add-unversioned "svn st | grep '^\?' | sed 's/^\? *//' | xargs -I% svn
 alias digs 'dig +short'
 
 alias whoamiaws "aws sts get-caller-identity"
+
+# brew
+alias bi "brew install"
+alias bci "brew install --cask"
