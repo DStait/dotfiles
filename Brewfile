@@ -42,6 +42,11 @@ brew "fx"
 brew "sngrep"
 brew "the_silver_searcher"
 brew "pigz"
+brew "git-delta"
+brew "bash"
+brew "pinentry-mac"
+brew "pass"
+brew "gnupg"
 
 # Apps
 cask "alfred"
