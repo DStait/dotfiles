@@ -7,8 +7,14 @@ require "chrome_active_tab_with_name"
 require "open_app"
 -- require 'movement_timer'
 if file_exists('pagerduty_credentials.lua') then require 'pagerduty' end
+-- Dummy file, for username as personal machines use a different username
+if file_exists('/Users/dominicstait/.DS_Store') then require 'keep_awake' end
+-- Secrets that are kept outside of git
+if file_exists('secrets.lua') then require 'secrets' end
+
 require 'ethernet_menu'
 local am = require('app-management')
+--
 -- Load and install the Hyper key extension. Binding to F18
 local hyper = require('hyper')
 hyper.install('F18')
@@ -16,21 +22,8 @@ hyper.install('F18')
 require "window_management"
 require "window_keybinding"
 
--- Cmd-Shift-F10 - type vpn password
-hs.hotkey.bind({"cmd", "shift"}, "F10", function()
-  paste_sec_item("VPNPassword")
-  hs.eventtap.keyStroke({}, "return")
-  hs.eventtap.keyStroke({"cmd"}, "h")
-end)
--- Cmd-Shift-F11 - type linux password
-hs.hotkey.bind({"cmd", "shift"}, "F11", function()
-  paste_sec_item("linuxPassword")
-end)
--- Cmd-Shift-F12 - type sudo -i and  linux password
-hs.hotkey.bind({"cmd", "shift"}, "F12", function()
-  hs.eventtap.keyStrokes("sudo -i")
-  hs.eventtap.keyStroke({}, "return")
-  paste_sec_item("linuxPassword")
+hs.hotkey.bind({"command", "shift"}, "w", function()
+    hs.eventtap.keyStrokes(WORK_EMAIL)
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "v", function()
@@ -40,16 +33,13 @@ end)
 -- Quick Reloading of Hammerspoon
 hyper.bindKey('r', function()
     hs.alert.show("Hammerspoon reloading")
+    kill_caffeine()
     hs.timer.doAfter(0.5, hs.reload)
 end)
 
 -- Global Application Keyboard Shortcuts
 hyper.bindShiftKey('p', function()
     hs.spotify.displayCurrentTrack()
-end)
-
-hyper.bindCtrlKey('c', function()
-  hs.application.launchOrFocus("/Users/dstait/Applications/Chrome Apps.localized/Google Calendar.app")
 end)
 
 -- Open tot
@@ -62,15 +52,26 @@ hyper.bindCommandShiftKey('b', function()
     hs.pasteboard.setContents(bundleId)
 end)
 
+local app_terminal = "org.alacritty"
+local app_editor = "com.microsoft.VSCode"
+local app_music = "com.spotify.client"
+local app_browser = "org.mozilla.firefox"
+local app_email = "com.microsoft.Outlook"
+local app_messenger = "com.tinyspeck.slackmacgap"
+local app_meetings = "com.microsoft.teams"
+
 -- Switch to and From App
-hyper.bindKey(']', function() am.switchToAndFromApp("io.alacritty") end)
-hyper.bindKey('[', function() am.switchToAndFromApp("com.microsoft.VSCode") end)
-hyper.bindKey('p', function() am.switchToAndHideApp("com.spotify.client") end)
-
-hyper.bindKey('a', function() am.switchToAndHideApp("io.alacritty") end)                -- Terminal
-hyper.bindKey('c', function() am.switchToAndHideApp("com.microsoft.VSCode") end)        -- VSCode
-hyper.bindKey('d', function() am.switchToAndHideApp("org.mozilla.firefox") end)         -- Browser
-hyper.bindKey('e', function() am.switchToAndHideApp("com.apple.mail") end)              -- Email
-hyper.bindKey('s', function() am.switchToAndHideApp("com.tinyspeck.slackmacgap") end)   -- Slack
+hyper.bindKey(']', function() am.switchToAndFromApp(app_terminal) end)
+hyper.bindKey('[', function() am.switchToAndFromApp(app_editor) end)
+hyper.bindKey('p', function() am.switchToAndHideApp(app_music) end)
 
 
+hyper.bindKey('q', function() am.switchToAndHideApp(app_messenger) end)
+hyper.bindKey('w', function() am.switchToAndHideApp(app_email) end)
+hyper.bindKey('e', function() am.switchToAndHideApp(app_meetings) end)
+
+hyper.bindKey('a', function() am.switchToAndHideApp(app_browser) end)
+hyper.bindKey('s', function() am.switchToAndHideApp(app_editor) end)
+hyper.bindKey('d', function() am.switchToAndHideApp(app_terminal) end)
+
+hyper.bindKey('z', function() am.switchToAndHideApp(app_music) end)
