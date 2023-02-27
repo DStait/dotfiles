@@ -33,6 +33,10 @@ hs.hotkey.bind({"cmd", "shift"}, "F12", function()
   paste_sec_item("linuxPassword")
 end)
 
+hs.hotkey.bind({"cmd", "shift"}, "v", function()
+  hs.eventtap.keyStrokes(hs.pasteboard.getContents())
+end)
+
 -- Quick Reloading of Hammerspoon
 hyper.bindKey('r', function()
     hs.alert.show("Hammerspoon reloading")
