@@ -1,2 +1,3 @@
 **/.DS_Store
 hammerspoon/pagerduty_credentials.lua
+hammerspoon/secrets.lua

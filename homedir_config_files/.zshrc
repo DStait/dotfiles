@@ -130,3 +130,7 @@ function bm() {
         echo "$PWD" >> ~/.config/to
     fi
 }
+
+
+
+PATH="/opt/homebrew/bin:$PATH"
