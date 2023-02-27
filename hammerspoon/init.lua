@@ -59,6 +59,7 @@ local app_browser = "org.mozilla.firefox"
 local app_email = "com.microsoft.Outlook"
 local app_messenger = "com.tinyspeck.slackmacgap"
 local app_meetings = "com.microsoft.teams"
+local app_notes = "com.microsoft.onenote.mac"
 
 -- Switch to and From App
 hyper.bindKey(']', function() am.switchToAndFromApp(app_terminal) end)
@@ -75,3 +76,4 @@ hyper.bindKey('s', function() am.switchToAndHideApp(app_editor) end)
 hyper.bindKey('d', function() am.switchToAndHideApp(app_terminal) end)
 
 hyper.bindKey('z', function() am.switchToAndHideApp(app_music) end)
+hyper.bindKey('x', function() am.switchToAndHideApp(app_notes) end)
