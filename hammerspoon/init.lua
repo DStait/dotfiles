@@ -37,10 +37,15 @@ hyper.bindKey('r', function()
     hs.timer.doAfter(0.5, hs.reload)
 end)
 
--- Global Application Keyboard Shortcuts
-hyper.bindShiftKey('p', function()
-    hs.spotify.displayCurrentTrack()
+-- Spotify Shortcuts
+hyper.bindShiftKey('p', function() hs.spotify.displayCurrentTrack() end)
+hyper.bindKey('pageup', function()
+    hs.spotify.volumeUp() 
+    if hs.spotify.getVolume() == 100 then
+        hs.alert.show("Max volume")
+    end
 end)
+hyper.bindKey('pagedown', function() hs.spotify.volumeDown() end)
 
 -- Open tot
 hyper.bindKey('/', function() hs.eventtap.keyStroke({"ctrl", "alt", "cmd"}, "s") end)

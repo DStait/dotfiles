@@ -48,3 +48,5 @@ alias whoamiaws "aws sts get-caller-identity"
 # brew
 alias bi "brew install"
 alias bci "brew install --cask"
+
+source /Users/dominicstait/.docker/init-fish.sh || true # Added by Docker Desktop
