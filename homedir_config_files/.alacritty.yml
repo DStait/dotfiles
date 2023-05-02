@@ -30,22 +30,26 @@ shell:
 
 font:
   normal:
-    family: Hack
+    #family: Hack
+    family: Fira Code
     style: Regular
 
   bold:
-    family: Hack
+    #family: Hack
+    family: Fira Code
     style: Bold
 
   italic:
-    family: Hack
+    #family: Hack
+    family: Fira Code
     style: Italic
 
   bold_italic:
-    family: Hack
+    #family: Hack
+    family: Fira Code
     style: Bold Italic
 
-  size: 12
+  size: 13
 
   offset:
     x: 0
@@ -136,8 +140,6 @@ cursor:
 live_config_reload: true
 
 working_directory: None
-
-alt_send_esc: true
 
 mouse:
   double_click: { threshold: 300 }

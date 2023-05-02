@@ -1,4 +1,5 @@
 tap 'buo/cask-upgrade'
+tap 'homebrew/cask-fonts'
 
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
@@ -47,6 +48,7 @@ brew "bash"
 brew "pinentry-mac"
 brew "pass"
 brew "gnupg"
+brew 'font-fira-code'
 
 # Apps
 cask "alfred"
@@ -65,6 +67,8 @@ cask "steermouse"
 cask "authy"
 cask "hammerspoon"
 cask "iina"
+cask "font-sf-mono"
+cask "font-sf-pro"
 
 # Install Mac App Store Apps
 mas "Amphetamine", id: 937984704
