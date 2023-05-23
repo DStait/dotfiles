@@ -58,13 +58,13 @@ hyper.bindCommandShiftKey('b', function()
 end)
 
 local app_terminal = "org.alacritty"
-local app_editor = "com.microsoft.VSCode"
+local app_editor = "com.jetbrains.pycharm.ce"
 local app_music = "com.spotify.client"
 local app_browser = "org.mozilla.firefox"
 local app_email = "com.microsoft.Outlook"
 local app_messenger = "com.tinyspeck.slackmacgap"
 local app_meetings = "com.microsoft.teams"
-local app_notes = "com.microsoft.onenote.mac"
+local app_notes = "md.obsidian"
 
 -- Switch to and From App
 hyper.bindKey(']', function() am.switchToAndFromApp(app_terminal) end)
