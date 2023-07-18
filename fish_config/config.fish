@@ -1,3 +1,15 @@
+## Functions
+# Anything that can't be put into the fish_functions dir because
+# it's needed before they can be copied over.
+function _source_file_if_exists
+    set -l file "$argv"
+    if test -e "$file"
+        source "$file"
+    else
+        echo "Not sourcing file: $file - Does not exist!"
+    end
+end
+
 # PATH 
 fish_add_path ~/bin
 fish_add_path ~/.local/bin
@@ -5,10 +17,12 @@ fish_add_path ~/.local/bin
 set -xg EDITOR 'vim'
 
 # Secrets to be kept out of git
-if test -e ~/.config/fish/fish_secrets
-  source ~/.config/fish/fish_secrets
-end
+_source_file_if_exists "$HOME/.config/fish/fish_secrets"
+# Other files to source
+_source_file_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.fish"
+_source_file_if_exists "$HOME/.docker/init-fish.sh"
 
+# MacOS Settings
 if [ (uname) = "Darwin" ]
   set -l HOMEBREW_PREFIX "/opt/homebrew"
 
@@ -28,25 +42,17 @@ alias gp "git pull"
 alias ga "git add"
 alias gc "git commit -m"
 alias gd 'git diff'
-alias grb 'git rebase -i origin/master' 
 alias gcom 'git checkout main 2> /dev/null || git checkout master'
 alias gqc 'git add -u; and gc "a"; and gbr'
 alias git-delete-merged-branches 'git fetch --prune && git branch --merged | egrep -v "(^\*|master|main)" | xargs git branch -d'
-
 # Git check-ignore alternative
 alias gitcheckignore 'git clean -dXn'
 
 # jq pipe to less with color
 alias jql='jq -C | less'
 
-# add svn unversioned files
-alias svn-add-unversioned "svn st | grep '^\?' | sed 's/^\? *//' | xargs -I% svn add %"
-alias digs 'dig +short'
-
 alias whoamiaws "aws sts get-caller-identity"
 
 # brew
 alias bi "brew install"
 alias bci "brew install --cask"
-
-source /Users/dominicstait/.docker/init-fish.sh || true # Added by Docker Desktop
