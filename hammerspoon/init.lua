@@ -65,6 +65,7 @@ local app_email = "com.microsoft.Outlook"
 local app_messenger = "com.tinyspeck.slackmacgap"
 local app_meetings = "com.microsoft.teams"
 local app_notes = "md.obsidian"
+local app_finder = "com.apple.finder"
 
 -- Switch to and From App
 hyper.bindKey(']', function() am.switchToAndFromApp(app_terminal) end)
@@ -79,6 +80,18 @@ hyper.bindKey('e', function() am.switchToAndHideApp(app_meetings) end)
 hyper.bindKey('a', function() am.switchToAndHideApp(app_browser) end)
 hyper.bindKey('s', function() am.switchToAndHideApp(app_editor) end)
 hyper.bindKey('d', function() am.switchToAndHideApp(app_terminal) end)
+hyper.bindKey('f', function() am.switchToAndHideApp(app_finder) end)
 
 hyper.bindKey('z', function() am.switchToAndHideApp(app_music) end)
 hyper.bindKey('x', function() am.switchToAndHideApp(app_notes) end)
+
+
+local keyCodes = hs.keycodes.map
+local leftArrow = keyCodes['left']
+local downArrow = keyCodes['down']
+local upArrow = keyCodes['up']
+local rightArrow = keyCodes['right']
+hyper.bindKey('h', function() hs.eventtap.keyStroke({}, leftArrow, 0) end)
+hyper.bindKey('j', function() hs.eventtap.keyStroke({}, downArrow, 0) end)
+hyper.bindKey('k', function() hs.eventtap.keyStroke({}, upArrow, 0) end)
+hyper.bindKey('l', function() hs.eventtap.keyStroke({}, rightArrow, 0) end)
