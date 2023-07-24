@@ -32,6 +32,7 @@ if [ (uname) = "Darwin" ]
 
   fish_add_path "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"
   fish_add_path "$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin"
+  fish_add_path "$HOMEBREW_PREFIX/opt/ssh-copy-id/bin"
 end
 
 alias dl "cd ~/Downloads"
