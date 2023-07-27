@@ -44,7 +44,7 @@ alias ga "git add"
 alias gc "git commit -m"
 alias gd 'git diff'
 alias gcom 'git checkout main 2> /dev/null || git checkout master'
-alias gqc 'git add -u; and gc "a"; and gbr'
+# alias gqc 'git add -u; and gc "a"; and gbr'
 alias git-delete-merged-branches 'git fetch --prune && git branch --merged | egrep -v "(^\*|master|main)" | xargs git branch -d'
 # Git check-ignore alternative
 alias gitcheckignore 'git clean -dXn'
