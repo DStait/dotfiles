@@ -6,7 +6,7 @@ function format-file
         case ".py"
             _format_py_file "$FILE"
         
-        case ".tf"
+        case ".tf" ".tfvars"
             _format_tf_file "$FILE"
         
         case ".json"
