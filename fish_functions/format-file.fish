@@ -1,7 +1,11 @@
 function format-file
     set -l FILE "$argv"
-    set -l FILE_EXT (path extension "$FILE")
 
+    if ! _check_ignored_format_file "$FILE"
+        return
+    end
+
+    set -l FILE_EXT (path extension "$FILE")
     switch "$FILE_EXT"
         case ".py"
             _format_py_file "$FILE"
@@ -19,6 +23,18 @@ function format-file
     
 end
 
+function _check_ignored_format_file
+    set -l FILE "$argv"
+    set -l IGNORED_FILES \
+        "$HOME/Library/Application Support/Code/User/settings.json" 
+
+    if contains $FILE $IGNORED_FILES
+        echo "Not formatting $FILE as it is in ignored file list"
+        return 1
+    end
+    
+    return
+end
 
 function _format_py_file
     set -l FILE "$argv"

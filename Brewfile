@@ -48,7 +48,8 @@ brew "bash"
 brew "pinentry-mac"
 brew "pass"
 brew "gnupg"
-brew 'font-fira-code'
+brew "font-fira-code"
+brew "font-jetbrains-mono"
 
 # Apps
 cask "alfred"

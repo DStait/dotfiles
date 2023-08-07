@@ -58,7 +58,8 @@ hyper.bindCommandShiftKey('b', function()
 end)
 
 local app_terminal = "org.alacritty"
-local app_editor = "com.jetbrains.pycharm.ce"
+-- local app_editor = "com.jetbrains.pycharm.ce"
+local app_editor = "com.microsoft.VSCode"
 local app_music = "com.spotify.client"
 local app_browser = "org.mozilla.firefox"
 local app_email = "com.microsoft.Outlook"

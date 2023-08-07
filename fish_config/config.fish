@@ -10,6 +10,14 @@ function _source_file_if_exists
     end
 end
 
+# Simple prompt for when using vscode
+if [ "$TERM_PROGRAM" = "vscode" ]
+    function fish_prompt
+        echo ""
+        echo "[$status] > "
+    end
+end
+
 # PATH 
 fish_add_path ~/bin
 fish_add_path ~/.local/bin
