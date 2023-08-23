@@ -14,7 +14,8 @@ end
 if [ "$TERM_PROGRAM" = "vscode" ]
     function fish_prompt
         echo ""
-        echo "[$status] > "
+        set -l dir (basename (pwd))
+        echo "[$status] $dir > "
     end
 end
 

@@ -50,6 +50,6 @@ function _format_json_file
     set -l FILE "$argv"
     set -l FILE_TEMP "$FILE.tmp"
 
-    jq --indent 4 . "$FILE" > "$FILE_TEMP"
+    jq --indent 2 . "$FILE" > "$FILE_TEMP"
     mv -f "$FILE_TEMP" "$FILE"
 end
