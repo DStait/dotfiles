@@ -5,7 +5,8 @@ require "lua_functions"
 require "password_from_keychain"
 require "chrome_active_tab_with_name"
 require "open_app"
--- require 'movement_timer'
+require "jira_sd_new_ticket"
+
 if file_exists('pagerduty_credentials.lua') then require 'pagerduty' end
 -- Dummy file, for username as personal machines use a different username
 if file_exists('/Users/dominicstait/.DS_Store') then require 'keep_awake' end
