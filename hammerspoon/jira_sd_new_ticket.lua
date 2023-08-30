@@ -16,21 +16,25 @@ local headers = {
     Accept =  "application/json"
 }
 
+-- Temp for first run
+old_jira_body_json = hs.json.decode('{ "issues": [] }')
 check_jira = hs.timer.new(60,
     function()
         -- Get issues
         local http_r, body_r, headers_r = hs.http.get(api_base_url .. search_string, headers)
-        local body_json = hs.json.decode(body_r)
-        -- count issues
-        local len = cf.tablelength(body_json.issues)
-        -- notify if > 0
-        if len > 0 then
+        local jira_body_json = hs.json.decode(body_r)
+        local jira_num_tickets = cf.tablelength(jira_body_json.issues)
+        
+        -- Compare issues to not alert repeatedly for same content
+        if jira_num_tickets ~= 0 and cf.compareTable(jira_body_json.issues, old_jira_body_json.issues) ~= true then
             hs.notify.new(
-            function() cf.open_url(browser_base_url .. search_string) end,
-            {
-                title=len .. " unassigned SD Ticket(s)",
-                withdrawAfter=59,
+                function() cf.open_url(browser_base_url .. search_string) end,
+                {
+                    title=jira_num_tickets .. " unassigned SD Ticket(s)",
+                    withdrawAfter=0,
             }):send()
+
+            old_jira_body_json = jira_body_json
         end
     end,
     true
