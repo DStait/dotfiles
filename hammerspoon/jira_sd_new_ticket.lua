@@ -8,7 +8,7 @@ if API_KEY == "" then
 end
 
 local api_base_url = "https://jiraservicedesk.extge.co.uk/rest/api/2/search?jql="
-local browser_base_url = "https://jiraservicedesk.extge.co.uk/browse/?"
+local browser_base_url = "https://jiraservicedesk.extge.co.uk/issues/?"
 local search_string = "filter=33108"
 
 local headers = {
@@ -16,7 +16,7 @@ local headers = {
     Accept =  "application/json"
 }
 
-check_jira = hs.timer.new(5,
+check_jira = hs.timer.new(60,
     function()
         -- Get issues
         local http_r, body_r, headers_r = hs.http.get(api_base_url .. search_string, headers)
@@ -25,9 +25,11 @@ check_jira = hs.timer.new(5,
         local len = cf.tablelength(body_json.issues)
         -- notify if > 0
         if len > 0 then
-            hs.notify.new({
+            hs.notify.new(
+            function() cf.open_url(browser_base_url .. search_string) end,
+            {
                 title=len .. " unassigned SD Ticket(s)",
-                withdrawAfter=59
+                withdrawAfter=59,
             }):send()
         end
     end,
