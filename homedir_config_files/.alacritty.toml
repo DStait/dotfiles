@@ -1,0 +1,57 @@
+# https://alacritty.org/config-alacritty.html
+
+import = [
+    "~/dotfiles/alacritty_config/colors.toml",
+    "~/dotfiles/alacritty_config/font.toml",
+    "~/dotfiles/alacritty_config/keybindings.toml"
+]
+
+working_directory = "None"
+live_config_reload = true
+
+
+[shell]
+program = "/opt/homebrew/bin/fish"
+args = ["-l", "-c", "tmux attach -t Alacritty || tmux new -s Alacritty"]
+
+
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1"
+
+
+[window]
+dimensions = { columns = 150, lines = 45 }
+padding = { x = 10, y = 10 }
+dynamic_padding = false
+decorations = "buttonless"
+opacity = 0.95
+blur = true
+startup_mode = "Windowed"
+
+
+[scrolling]
+history = 2500
+multiplier = 3
+
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = false
+
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+unfocused_hollow = true
+
+
+[mouse]
+hide_when_typing = false
+
+
+[debug]
+render_timer = false
+persistent_logging = false
+log_level = "Warn"
+print_events = false
+
