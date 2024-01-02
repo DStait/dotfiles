@@ -66,3 +66,5 @@ alias whoamiaws "aws sts get-caller-identity"
 # brew
 alias bi "brew install"
 alias bci "brew install --cask"
+
+alias datenow 'date "+%F-%H-%M-%S"'
