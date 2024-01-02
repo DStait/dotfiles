@@ -59,13 +59,13 @@ hyper.bindCommandShiftKey('b', function()
 end)
 
 local app_terminal = "org.alacritty"
--- local app_editor = "com.jetbrains.pycharm.ce"
+local app_editor_terraform = "com.jetbrains.pycharm.ce"
 local app_editor = "com.microsoft.VSCode"
 local app_music = "com.spotify.client"
 local app_browser = "org.mozilla.firefox"
 local app_email = "com.microsoft.Outlook"
 local app_messenger = "com.tinyspeck.slackmacgap"
-local app_meetings = "com.microsoft.teams"
+local app_meetings = "com.microsoft.teams2"
 local app_notes = "md.obsidian"
 local app_finder = "com.apple.finder"
 
@@ -86,6 +86,7 @@ hyper.bindKey('f', function() am.switchToAndHideApp(app_finder) end)
 
 hyper.bindKey('z', function() am.switchToAndHideApp(app_music) end)
 hyper.bindKey('x', function() am.switchToAndHideApp(app_notes) end)
+hyper.bindKey('c', function() am.switchToAndHideApp(app_editor_terraform) end)
 
 
 local keyCodes = hs.keycodes.map
