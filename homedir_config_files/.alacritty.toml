@@ -28,6 +28,7 @@ decorations = "buttonless"
 opacity = 0.95
 blur = true
 startup_mode = "Windowed"
+option_as_alt = "Both"
 
 
 [scrolling]
