@@ -1,5 +1,6 @@
 jorgebucaran/fisher
 jorgebucaran/autopair.fish
 pure-fish/pure
-jethrokuan/fzf
 tuvistavie/fish-completion-helpers
+PatrickF1/fzf.fish
+divkix/multipass-fish-completions
