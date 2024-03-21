@@ -26,6 +26,7 @@ brew 'git'
 brew 'watch'
 brew 'pv'
 brew 'bat'
+brew 'fd'
 brew "httpie"
 brew "speedtest-cli"
 brew "ansible"
