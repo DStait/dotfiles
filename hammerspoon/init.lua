@@ -89,6 +89,10 @@ hyper.bindKey('x', function() am.switchToAndHideApp(app_notes) end)
 hyper.bindKey('c', function() am.switchToAndHideApp(app_editor_terraform) end)
 
 
+
+hyper.bindKey('tab', function() hs.spaces.toggleMissionControl() end)
+
+
 local keyCodes = hs.keycodes.map
 local leftArrow = keyCodes['left']
 local downArrow = keyCodes['down']
