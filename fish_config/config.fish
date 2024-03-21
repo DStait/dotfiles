@@ -23,13 +23,16 @@ end
 fish_add_path ~/bin
 fish_add_path ~/.local/bin
 
-set -xg EDITOR 'vim'
+set -xg EDITOR 'nvim'
+set -xg FZF_DISABLE_KEYBINDINGS 1
 
 # Secrets to be kept out of git
 _source_file_if_exists "$HOME/.config/fish/fish_secrets"
 # Other files to source
 _source_file_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.fish"
 _source_file_if_exists "$HOME/.docker/init-fish.sh"
+
+zoxide init fish | source
 
 # MacOS Settings
 if [ (uname) = "Darwin" ]
@@ -43,6 +46,9 @@ if [ (uname) = "Darwin" ]
   fish_add_path "$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin"
   fish_add_path "$HOMEBREW_PREFIX/opt/ssh-copy-id/bin"
 end
+
+
+bind \cw backward-kill-word
 
 alias dl "cd ~/Downloads"
 alias dt "cd ~/Desktop"
