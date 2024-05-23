@@ -74,3 +74,5 @@ alias bi "brew install"
 alias bci "brew install --cask"
 
 alias datenow 'date "+%F-%H-%M-%S"'
+
+alias allowfileexec "xattr -dr com.apple.quarantine"
