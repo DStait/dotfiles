@@ -5,8 +5,6 @@ function _source_file_if_exists
     set -l file "$argv"
     if test -e "$file"
         source "$file"
-    else
-        echo "Not sourcing file: $file - Does not exist!"
     end
 end
 
@@ -71,7 +69,6 @@ alias gitcheckignore 'git clean -dXn'
 
 # jq pipe to less with color
 alias jql='jq -C | less'
-
 alias whoamiaws "aws sts get-caller-identity"
 
 # brew
@@ -79,5 +76,5 @@ alias bi "brew install"
 alias bci "brew install --cask"
 
 alias datenow 'date "+%F-%H-%M-%S"'
-
 alias allowfileexec "xattr -dr com.apple.quarantine"
+alias icloud "cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
