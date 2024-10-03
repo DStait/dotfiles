@@ -52,7 +52,7 @@ hyper.bindKey('pagedown', function() hs.spotify.volumeDown() end)
 hyper.bindKey('/', function() hs.eventtap.keyStroke({"ctrl", "alt", "cmd"}, "s") end)
 
 -- Show the bundleID of the currently open window
-hyper.bindCommandShiftKey('b', function() 
+hyper.bindKey('b', function() 
     local bundleId = hs.window.focusedWindow():application():bundleID()
     hs.alert.show(bundleId)
     hs.pasteboard.setContents(bundleId)
@@ -67,7 +67,7 @@ local app_email = "com.microsoft.Outlook"
 local app_messenger = "com.tinyspeck.slackmacgap"
 local app_meetings = "com.microsoft.teams2"
 local app_notes = "md.obsidian"
-local app_finder = "com.apple.finder"
+local app_finder = "org.yanex.marta"
 
 -- Switch to and From App
 hyper.bindKey(']', function() am.switchToAndFromApp(app_terminal) end)
