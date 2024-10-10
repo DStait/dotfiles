@@ -67,7 +67,7 @@ local app_email = "com.microsoft.Outlook"
 local app_messenger = "com.tinyspeck.slackmacgap"
 local app_meetings = "com.microsoft.teams2"
 local app_notes = "md.obsidian"
-local app_finder = "org.yanex.marta"
+local app_finder = "com.apple.finder"
 
 -- Switch to and From App
 hyper.bindKey(']', function() am.switchToAndFromApp(app_terminal) end)
