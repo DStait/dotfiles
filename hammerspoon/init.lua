@@ -27,7 +27,7 @@ hs.hotkey.bind({"command", "shift"}, "w", function()
     hs.eventtap.keyStrokes(WORK_EMAIL)
 end)
 
-hs.hotkey.bind({"cmd", "shift"}, "v", function()
+hs.hotkey.bind({"cmd", "shift", "option"}, "v", function()
   hs.eventtap.keyStrokes(hs.pasteboard.getContents())
 end)
 

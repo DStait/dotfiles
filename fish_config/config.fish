@@ -78,3 +78,4 @@ alias bci "brew install --cask"
 alias datenow 'date "+%F-%H-%M-%S"'
 alias allowfileexec "xattr -dr com.apple.quarantine"
 alias icloud "cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias dr "docker run --rm -it"
