@@ -46,6 +46,14 @@ if [ (uname) = "Darwin" ]
 
   # Use GNU ls
   alias ls "gls"
+
+  # brew
+  alias bi "brew install"
+  alias bci "brew install --cask"
+
+  alias allowfileexec "xattr -dr com.apple.quarantine"
+  alias icloud "cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+  alias charm "open -na PyCharm.app"
 end
 
 
@@ -62,7 +70,6 @@ alias ga "git add"
 alias gc "git commit -m"
 alias gd 'git diff'
 alias gcom 'git checkout main 2> /dev/null || git checkout master'
-# alias gqc 'git add -u; and gc "a"; and gbr'
 alias git-delete-merged-branches 'git fetch --prune && git branch --merged | egrep -v "(^\*|master|main)" | xargs git branch -d'
 # Git check-ignore alternative
 alias gitcheckignore 'git clean -dXn'
@@ -71,11 +78,5 @@ alias gitcheckignore 'git clean -dXn'
 alias jql='jq -C | less'
 alias whoamiaws "aws sts get-caller-identity"
 
-# brew
-alias bi "brew install"
-alias bci "brew install --cask"
-
 alias datenow 'date "+%F-%H-%M-%S"'
-alias allowfileexec "xattr -dr com.apple.quarantine"
-alias icloud "cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias dr "docker run --rm -it"
+alias dr "docker run --rm -it -v (pwd):/cur_dir" 
