@@ -49,7 +49,7 @@ end
 
 function _format_py_file
     set -l FILE "$argv"
-    black --line-length 79 --quiet "$FILE"
+    black --line-length 88 --quiet "$FILE"
 end
 
 function _format_tf_file
