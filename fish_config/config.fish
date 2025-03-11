@@ -11,9 +11,28 @@ end
 # Simple prompt for when using vscode
 if [ "$TERM_PROGRAM" = "vscode" ]
     function fish_prompt
-        echo ""
-        set -l dir (basename (pwd))
-        echo "[$status] $dir > "
+
+    set --local jobs (_pure_prompt_jobs)
+    set --local virtualenv (_pure_prompt_virtualenv) # Python virtualenv name
+    set --local vimode_indicator (_pure_prompt_vimode) # vi-mode indicator
+    set --local pure_symbol (_pure_prompt_symbol $status)
+    set --local system_time (_pure_prompt_system_time)
+    set --local root_prefix (_pure_prefix_root_prompt)
+    set --local dir (prompt_pwd --full-length-dirs=3)
+    set --local space
+
+    set space ' '
+
+    echo (\
+        _pure_print_prompt \
+        $space \
+        $system_time \
+        $dir \
+        $jobs \
+        $virtualenv \
+        $vimode_indicator \
+        $pure_symbol \
+    )
     end
 end
 
@@ -27,7 +46,6 @@ set -xg FZF_DISABLE_KEYBINDINGS 1
 # Secrets to be kept out of git
 _source_file_if_exists "$HOME/.config/fish/fish_secrets"
 # Other files to source
-_source_file_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.fish"
 _source_file_if_exists "$HOME/.docker/init-fish.sh"
 
 zoxide init fish | source
@@ -53,7 +71,11 @@ if [ (uname) = "Darwin" ]
 
   alias allowfileexec "xattr -dr com.apple.quarantine"
   alias icloud "cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-  alias charm "open -na PyCharm.app"
+  alias vim "nvim"
+
+  _source_file_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.fish"
+  # above doesn't seem to work...????
+  fish_add_path -m --prepend "$HOME/.asdf/shims"
 end
 
 
