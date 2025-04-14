@@ -20,10 +20,13 @@ function keepAwake()
     caffeine_active = false
   end
 
+
+  local time_830am = 30600
+  local time_9am = 32400
+  local time_6pm = 64800
   cur_time = hs.timer.localTime()
   if ka_debug then print("CURRENT TIME: " .. cur_time) end
-  -- After 9am but before 6pm
-  if (cur_time > 32400 and cur_time < 64800) then
+  if (cur_time > time_830am and cur_time < time_6pm) then
     -- Start caffeine if it is not running already
     if caffeine_active then
       if ka_debug then print(app_name .. " already active") end
