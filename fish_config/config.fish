@@ -102,3 +102,5 @@ alias whoamiaws "aws sts get-caller-identity"
 
 alias datenow 'date "+%F-%H-%M-%S"'
 alias dr "docker run --rm -it -v (pwd):/cur_dir" 
+
+alias xx "chmod +x" 
