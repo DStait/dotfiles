@@ -87,6 +87,7 @@ alias dl "cd ~/Downloads"
 alias dt "cd ~/Desktop"
 # Git commands
 alias gs "git status"
+alias gss "git status --short"
 alias gp "git pull"
 alias ga "git add"
 alias gc "git commit -m"
