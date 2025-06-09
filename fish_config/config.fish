@@ -50,6 +50,14 @@ _source_file_if_exists "$HOME/.docker/init-fish.sh"
 
 zoxide init fish | source
 
+# So we can keep functions within this repo
+set -xg fish_function_path "$HOME/dotfiles/fish_functions" $fish_function_path
+if test -d "$HOME/dotfiles-work/fish_functions"
+    set -xg fish_function_path "$HOME/dotfiles-work/fish_functions" $fish_function_path
+end
+
+set -xg fish_complete_path "$HOME/dotfiles/fish_completions/" $fish_complete_path
+
 # MacOS Settings
 if [ (uname) = "Darwin" ]
   set -l HOMEBREW_PREFIX "/opt/homebrew"
@@ -76,6 +84,9 @@ if [ (uname) = "Darwin" ]
   _source_file_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.fish"
   # above doesn't seem to work...????
   fish_add_path -m --prepend "$HOME/.asdf/shims"
+
+  set -gx LDFLAGS "-L/opt/homebrew/opt/zlib/lib"
+  set -gx CPPFLAGS "-I/opt/homebrew/opt/zlib/include"
 end
 
 
@@ -105,3 +116,8 @@ alias datenow 'date "+%F-%H-%M-%S"'
 alias dr "docker run --rm -it -v (pwd):/cur_dir" 
 
 alias xx "chmod +x" 
+
+alias kics-scan "docker run -t -v "(pwd)":/cur_dir checkmarx/kics scan --exclude-severities info,low,medium -p /cur_dir -o '/cur_dir/'"
+alias cat='bat --paging=never'
+alias less='bat --paging=always'
+

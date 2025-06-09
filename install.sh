@@ -55,14 +55,12 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   # Copy launchagent to change right option to F18 for Hyper key
   ln -fs "${dir}/com.local.KeyRemapping.plist" ~/Library/LaunchAgents/com.local.KeyRemapping.plist
   symlink_files "${dir}/fish_config" ~/.config/fish/
-  ./scripts/symlink_fish_functions.sh
   install_fish
 fi
 
 # Ubuntu Setup
 if [[ -f /etc/debian_version ]]; then
   symlink_files "${dir}/fish_config" ~/.config/fish/
-  ./scripts/symlink_fish_functions.sh
   install_fish
   ./ubuntu_setup.sh
 fi
