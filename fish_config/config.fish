@@ -48,15 +48,16 @@ _source_file_if_exists "$HOME/.config/fish/fish_secrets"
 # Other files to source
 _source_file_if_exists "$HOME/.docker/init-fish.sh"
 
-zoxide init fish | source
+if status --is-interactive
+    set -l dotfiles_function_dir "$HOME/dotfiles/fish_functions" 
+    set -l dotfiles_work_function_dir "$HOME/dotfiles-work/fish_functions" 
+    set -l dotfiles_completion_dir "$HOME/dotfiles/fish_completions/"
 
-# So we can keep functions within this repo
-set -xg fish_function_path "$HOME/dotfiles/fish_functions" $fish_function_path
-if test -d "$HOME/dotfiles-work/fish_functions"
-    set -xg fish_function_path "$HOME/dotfiles-work/fish_functions" $fish_function_path
+    # add my dirs for functions and completion
+    set -p fish_function_path "$dotfiles_function_dir"
+    set -p fish_function_path "$dotfiles_work_function_dir"
+    set -p fish_complete_path "$dotfiles_completion_dir" 
 end
-
-set -xg fish_complete_path "$HOME/dotfiles/fish_completions/" $fish_complete_path
 
 # MacOS Settings
 if [ (uname) = "Darwin" ]

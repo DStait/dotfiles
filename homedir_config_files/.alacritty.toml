@@ -22,7 +22,7 @@ WINIT_X11_SCALE_FACTOR = "1"
 
 [window]
 dimensions = { columns = 150, lines = 45 }
-padding = { x = 10, y = 10 }
+padding = { x = 5, y = 5 }
 dynamic_padding = false
 decorations = "buttonless"
 opacity = 0.95
